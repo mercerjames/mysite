@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* 页面最顶部 */
+body #navTop #top{
+    font-size: 12px;
+}
+
+body #navTop #top #topleft{
+    float: left;
+}
+body #navTop #top #topright{
+    float: right;
+}
+body #navTop #top #topright li{
+    display: inline-block;
+    margin: 4px 8px;
+    letter-spacing: 1px;
+}
+/* 页面顶部带搜索的展示List */
+body #headNav #header #showList{
+    display: inline-block;
+    float: right;
+    width: 660px;
+}
+body #headNav #header #showList #search{
+    float: left;
+    margin-right: 40px;
+    margin-top: 31px;
+}
+body #headNav #header #showList #search input{
+    height: 33px;
+    border: 2px solid #f00582;
+    width: 240px;
+    padding-left: 5px;
+    float: left;
+}
+body #headNav #header #showList #search button{
+    height: 39px;
+    overflow: hidden;
+    padding: 7px 30px;
+    background-color: #f00582;
+    color: #fff;
+    letter-spacing: 2px;
+    float: right;
+    border: 0;
+    line-height: 21px;
+    cursor: pointer;
+}
+body #headNav #header #showList dl{
+    margin: 5px 16px;
+    float: left;
+}
+body #headNav #header #showList dl dt{
+    width: 60px;
+    height: 70px;
+}
+body #headNav #header #showList dl .rg{
+    background-image: url(../img/baozhang.png);
+    background-position: 0px 1px;
+}
+body #headNav #header #showList dl .zy{
+    background-image: url(../img/baozhang.png);
+    background-position: 0px -77px;
+}
+body #headNav #header #showList dl .qc{
+    background-image: url(../img/baozhang.png);
+    background-position: 0px -151px;
+}
+
+/* 顶部导航栏 */
+body #banner{
+    width: 100%;
+    background-color: #f00582;
+}
+body #banner #nav{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+body #banner #nav a{
+    padding: 8px 15px;
+    color: #fff;
+    width: 126px;
+    display: inline-block;
+    text-align: center;
+}
+body #banner #nav a:hover{
+    background-color: #bd166f;
+}
+body #banner #nav a:visited{
+    background-color: #bd166f;
+}
+
