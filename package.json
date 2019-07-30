@@ -10,7 +10,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-preset-env": "^1.7.0",
     "gulp": "^3.9.1",
-    "gulp-htmlmin": "^5.0.1"
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^6.0.0",
+    "gulp-uglify": "^3.0.2"
   }
 }

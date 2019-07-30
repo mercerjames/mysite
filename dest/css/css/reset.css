@@ -1,0 +1,44 @@
+@charset "utf-8";
+body,p,ul,ol,h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    padding: 0;
+}
+body, textarea, input, button, select, keygen, legend {
+    font: 12px/1.14 arial,\5b8b\4f53;
+    color: #333;
+    outline: 0;
+}
+body{
+    color: #757575;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+a,button{
+    cursor: pointer;
+}
+.center{
+    width: 1200px;
+    margin: 0 auto;
+}
+.swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.clearFloat:after{
+    content:"";
+    display: block;
+    clear: both;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}

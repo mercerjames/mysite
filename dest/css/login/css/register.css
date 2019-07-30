@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+#head{
+    width: 1000px;
+    height: 60px;
+    padding-top: 6px;
+    margin: 0px auto;
+}
+.content {
+    width: 1000px;
+    margin: 10px auto 0;
+}
+.content .module_common{
+    padding: 5px;
+    border: 4px solid #D7DCE1;
+    overflow: hidden;
+    margin-bottom: 10px;
+    clear: both;
+}
+.content .module_common .login_con{
+    width: 974px;
+    background: url(../img/login_con.gif) repeat-y;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+.content .module_common .login_con .login_fill_in{
+    float: left;
+    color: #646665;
+    display: inline;
+    margin: 0 0 0 10px;
+}
+.content .module_common .login_con .login_fill_in td{
+    text-align: left;
+    padding-bottom: 16px;
+}
+.content .module_common .login_con .login_fill_in th{
+    font-weight: normal;
+    text-align: right;
+    width: 80px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+}
+.content .module_common .login_con .login_fill_in .text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #666;
+    background: url(../img/text.gif) repeat-x;
+    padding: 4px;
+    border: 1px solid;
+    width: 180px;
+}
+.content .module_common .login_con .login_fill_in .field_notice{
+    color: #9C9C9C;
+    margin-left: 5px;
+}
+.content .module_common .login_con .login_fill_in .login_btn{
+    background: url(../img/btn.gif) no-repeat -197px 0;
+    display: inline;
+    width: 102px;
+    height: 43px;
+    float: left;
+    clear: both;
+    margin-top: 12px;
+    margin-left: 15px;
+    border: 0;
+    cursor: pointer;
+}
+.content .module_common .login_con .login_right{
+    line-height: 22px;
+    color: #626A73;
+    display: inline;
+    width: 350px;
+    float: right;
+    margin-top: 0px;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+.content .module_common .login_con .login_right h4{
+    font-size: 14px;
+    color: #434B58;
+    line-height: 30px;
+    margin-top: 2px;
+    margin-bottom: 6px;
+}
+.content .module_common .login_con .login_right .enter{
+    background: url(../img/btn.gif) no-repeat right -96px;
+    vertical-align: middle;
+    display: inline;
+    width: 102px;
+    height: 43px;
+    float: left;
+    margin-top: 12px;
+    margin-left: 15px;
+    border: 0;
+    cursor: pointer;
+}
+#footer {
+    line-height: 20px;
+    color: #aaa;
+    text-align: center;
+    display: block;
+    width: 1000px;
+    clear: both;
+    margin: 12px auto 0px auto;
+    padding-bottom: 10px;
+    border-top: 3px solid #E9ECEF;
+    overflow: hidden;
+}
