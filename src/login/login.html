@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="../js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <div id="head"></div>
+    <div class="content">
+        <div class="module_common">
+            <div class="wrap">
+                <div class="wrap_child">
+                    <div class="login_con">
+                        <div class="login_left">
+                            <h2>
+                                <b title="LOGIN用户登录" class="login"></b>
+                            </h2>
+                            <form action="#" id="login_form" method = "post" class = "bg">
+                               <input type="hidden" name="form_submit" value="ok">
+                               <table style="border-collapse: collapse;">
+                                    <tbody>
+                                        <tr>
+                                            <th>用户名：</th>
+                                            <td>
+                                               <input type="text" class="text" name="userqq" id="userqq"> 
+                                            </td>
+                                            <td style="color: #9c9c9c; padding-left: 10px;">
+                                                <label for="" class="field_notice"></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>密&nbsp;&nbsp;&nbsp;码：</th>
+                                            <td>
+                                                <input type="password" class="text" name="userpass" id="userpass">
+                                            </td>
+                                            <td style="color: #9c9c9c; padding-left: 10px;">
+                                                <label for="" class="field_notice"></label>
+                                            </td>
+                                        </tr>
+                                        <tr style="height: 70px;">
+                                            <th></th>
+                                            <td colspan="2">
+                                                <input type="submit" class="enter" value name="Submit">
+                                                <div style = "margin-top:20px;margin-left:10px;float:right;">
+                                                    <a href="#" target = "blank">
+                                                        忘记密码？
+                                                        <br>
+                                                        购物助手找回
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                               </table> 
+                               <input type="hidden" name="ref_url">
+                            </form>
+                            <table style="border-collapse: collapse;">
+                                <tbody>
+                                    <tr style="height: 70px;">
+                                        <td></td>
+                                        <td>
+                                            <a href="#" target="_blank">
+                                                <img height ="32" border="0" src="../img/weibo_login_s.png" alt="">
+                                            </a>
+                                            &nbsp;
+                                            <a href="#" target="_blank">
+                                                <img height ="32" border="0" src="../img/weibo_login_s.png" alt="">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="login_right">
+                            <h4>友情提示:  如果您还不是会员，请注册</h4>
+                            <p>注册之后你就可以</p>
+                            <ol>
+                                <li class="ico01">购买本站产品</li>
+                                <li class="ico02">给其他QQ发货</li>
+                            </ol>
+                            <a href="#" title = "立即注册" class="login_btn"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+</body>
+</html>
+<script>
+    $(()=>{
+        $("#head").load("header.html",function(){
+            console.log("头部加载成功")
+        })
+        $("#footer").load("footer.html",function(){
+            console.log("底部加载成功")
+        })
+    })
+</script>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>register</title>
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="./css/register.css">
+</head>
+<body>
+    <div id="head"></div>
+    <div class="content">
+        <div class="module_common">
+            <div class="wrap">
+                <div class="wrap_child">
+                    <div class="login_con">
+                        <div class="login_fill_in">
+                            <form action="#" name id="register_form" method="post" >
+                                <table style="border-collapse: collapse;">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="3">
+                                                <h4>填写用户注册信息</h4>
+                                            </td>   
+                                        </tr>
+                                        <tr>
+                                            <th>账号：</th>
+                                            <td>
+                                                <input type="text" id="reg_qq" name="reg_qq" class="text">
+                                            </td>
+                                            <td style="color: #9c9c9c; padding-left: 10px;">
+                                                <label for="" class="field_notice">您要注册的帐号</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>密码：</th>
+                                            <td>
+                                                <input type="password" id="reg_pass" name="reg_pass" class="text">
+                                            </td>
+                                            <td style="color: #9c9c9c; padding-left: 10px;">
+                                                <label for="" class="field_notice">您的登录密码</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>确认密码：</th>
+                                            <td>
+                                                <input type="password" id="reg_pass_confirm" name="reg_pass_confirm" class="text">
+                                            </td>
+                                            <td style="color: #9c9c9c; padding-left: 10px;">
+                                                <label for="" class="field_notice">再次输入您的密码</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>邮箱：</th>
+                                            <td>
+                                                <input type="text" id="reg_email" name="reg_email" class="text">
+                                            </td>
+                                            <td style="color: #9c9c9c; padding-left: 10px;">
+                                                <label for="" class="field_notice">找回密码唯一途径，请务必输入正确</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>验证码：</th>
+                                            <td>
+                                                <input type="text" id="captcha" name="captcha" class="text" size="10" style="text-transform:uppercase; width: 110px;">
+                                            </td>
+                                            <td style="color: #9c9c9c; padding-left: 10px;">
+                                                <label for="" class="field_notice">输入验证码</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th rowspan="2"></th>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <input type="hidden" name="reg" value="yes">
+                                                <input type="submit" name="Submit" value class="login_btn" title="立即注册">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="login_right">
+                            <h4>提示：</h4>
+                            <h4 style=" margin-top:24px;">如果已经拥有帐号</h4>
+                            <a href="#" class="enter" title="现在登录"></a>
+                            <div style="clear: both;"></div>
+                            <h4>您还可以：</h4>
+                            <br>
+                            <a href="#" target="_blank">
+                                <img height="32" border="0" src="../img/weibo_login_s.png" alt="">
+                            </a>
+                            <br>
+                            <a href="#" target="_blank">
+                                <img height="32" border="0" src="../img/weibo_login_s.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+</body>
+</html>
+<script>
+    $(function(){
+        $("#head").load("header.html",function(){
+            console.log("头部加载成功");
+        })
+        $("#footer").load("footer.html",function(){
+            console.log("尾部加载成功");
+        })
+    })
+</script>
