@@ -1,0 +1,128 @@
+
+<style>
+    .all{
+        width: 720px;
+        height: 300px;
+        background: yellow;
+        position: relative;
+        overflow: hidden;
+    }
+    .all ul{
+        position: relative;
+        z-index: 1;
+    }
+    .all ul li {
+        position:absolute; left:0; top:0;
+    }
+    .all ul .current{ z-index:10;}
+    .all ol{
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translate(-50%,0);
+        z-index: 2;
+    }
+    
+    .all ol li{
+        width: 14px;
+        height: 14px;
+        float: left;
+        border-radius: 50%;
+        background-color: #999;
+        opacity: .4;
+        cursor:pointer;
+        margin: 0 4px;
+        border:1px solid #fff;
+    }
+    .all ol .current{ background:#fff;opacity:1;}
+    .ArrowLeft{
+        position: absolute;
+        top: 50%;
+        width: 27px;
+        height: 44px;
+        margin-top: -22px;
+        z-index: 10;
+        cursor: pointer;
+        left: 10px;
+    }
+    .ArrowRight{
+        position: absolute;
+        top: 50%;
+        width: 27px;
+        height: 44px;
+        margin-top: -22px;
+        z-index: 10;
+        cursor: pointer;
+        right: 10px;
+    }
+
+</style>
+<script src="./js/jquery-1.11.1.min.js"></script>
+<div class="all">
+    <ul>
+        <li class="current"><a><img src="./lunbotu/TB2vDrOvKJ8puFjy1XbXXagqVXa_!!2508158775.jpg" width = "720" height = "300" alt=""></a></li>
+        <li><a><img src="./lunbotu/TB2UkhPArxmpuFjSZJiXXXauVXa_!!2508158775.jpg" width = "720" height = "300" alt=""></a></li>
+        <li><a><img src="./lunbotu/TB28jmGardvt1JjSZFuXXXG0FXa_!!2508158775.jpg" width = "720" height = "300" alt=""></a></li>
+    </ul>
+    <ol>
+        <li class="current"></li>
+        <li></li>
+        <li></li>
+    </ol>
+    <span class="ArrowLeft"><img src="./img/arrowl.png" width="25" height="50" alt=""></span>
+    <span class="ArrowRight"><img src="./img/arrowr.png" width="25" height="50" alt=""></span>
+</div>
+<script>
+  
+        jQuery(function(){
+            var mytop=100;
+            var sx=0;
+            var speed=500;
+            var timer=null;
+            //脚标对应
+            $(".all>ol").find("li").on("click",function(e){
+                mytop++;
+                $(this).addClass("current").siblings().removeClass();
+                var index = $(this).index();
+                $(".all ul li").eq(index).css("z-index",mytop).hide().fadeIn();
+                sx = index;
+            })
+            
+            //自动播放
+            timer = setInterval(autoplay,2000)
+            function autoplay(){
+                sx++;
+                mytop++;
+                if(sx>2){sx = 0;}
+                $('.all ol li').eq(sx).addClass('current').siblings().removeClass();
+                $('.all ul li').eq(sx).css({zIndex:mytop}).hide().fadeIn(speed);
+            }
+            //鼠标进入停止轮播图
+            $(".all").hover(function(e){
+                clearInterval(timer);
+                $(".all span").fadeIn();
+            },function(e){
+                clearInterval(timer);
+                timer = setInterval(autoplay,2000);
+                $(".all span").fadeOut();
+            })
+            
+            //箭头操作
+            $(".all .ArrowLeft").on("click",function(e){
+                sx--;
+                mytop++;
+                if(sx<0){sx=3;}
+                $(".all ul li").eq(sx).css({zIndex:mytop}).hide().fadeIn(speed);
+                $(".all ol li").eq(sx).addClass("current").siblings().removeClass();
+            })
+            $(".all .ArrowRight").on("click",function(e){
+                sx++;
+                mytop++;
+                if(sx>3){sx=0;}                  
+                $(".all ul li").eq(sx).css({zIndex:mytop}).hide().fadeIn(speed);
+                $(".all ol li").eq(sx).addClass("current").siblings().removeClass();
+            })
+    
+        })
+   
+</script>

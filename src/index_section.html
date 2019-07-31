@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="./css/index.css">
+<script src="./js/jquery-1.11.1.min.js"></script>
 <div id="dtk_main">
     <!-- 展示轮播图 -->
     <div id="showBanner" class="center">
@@ -56,7 +57,8 @@
             </div>
             <!-- 轮播 -->
             <div class="unslider swiper-container">
-                晚点再来料理你
+                
+
             </div>
             <!-- 右边大图 -->
             <div class="rightPic" style="position: relative">
@@ -1850,3 +1852,8 @@
         <!-- 领券优惠直播区结束 -->
     </div>
 </div>
+<script>
+    $(".unslider").load("index_unslider.html",function(){
+            console.log("主页轮播图部分加载完成")
+    })
+</script>

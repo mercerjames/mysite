@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.26.7",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^7.0.1",

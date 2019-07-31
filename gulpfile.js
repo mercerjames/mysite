@@ -4,7 +4,9 @@ const cssmin = require("gulp-clean-css")
 const uglify = require("gulp-uglify")
 const babel = require("gulp-babel")
 const imagemin = require("gulp-imagemin")
+const browserSync = require("browser-sync")
 const autoprefixer = require("gulp-autoprefixer") 
+
 
 gulp.task("htmlmin",function(){
     gulp.src(["./src/*.html","./src/*.html"])
@@ -52,5 +54,18 @@ gulp.task("jsmin",function(){
     .pipe(uglify())
     .pipe(gulp.dest('./dest/js'))
 })
+gulp.task('browser-sync', function () {
+    browserSync.init({
+        files:['./src/**'],
+        //proxy:'localhost', // 设置本地服务器的地址
+        port:8083,  // 设置访问的端口号
+        server:{
+            baseDir: "./"
+        },
+        directory:true
+    });
 
-gulp.task("default",["htmlmin","cssmin","jsmin","textAutoFx"])
+    gulp.watch(["./src/*.html","./src/*.htm","./src/css/*.css","./src/js/*.js"],
+    ["htmlmin", "jsmin", "imagemin", "Cssmin"],browserSync.reload);
+});
+gulp.task("default",["htmlmin","cssmin","jsmin","textAutoFx","browser-sync"])
