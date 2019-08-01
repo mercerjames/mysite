@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/header.css">
     <script src="./js/jquery-1.11.1.min.js"></script>
+    <script src="./js/amazeui.lazyload.js"></script>
     <style>
         #navTop {
             width: 100%;
@@ -48,11 +49,33 @@
         $("header").load("index_header.html",function(){
             console.log("公共头部加载完成")
         })
-        $("section").load("index_section.html",function(){
-            console.log("主页部分加载完成")
-        })
+        
+        
         $("footer").load("index_footer.html",function(){
             console.log("公共尾部加载完成")
         })  
+        //延时加载区域
+        $(".showPic").lazyload({
+            placeholder: "./img/loding.gif",
+            effect: "fadeIn", // 载入使用何种效果
+            // effect(特效),值有show(直接显示),fadeIn(淡入),slideDown(下拉)等,常用fadeIn
+            threshold: -200, // 提前开始加载
+            //用图片提前占位
+        });
+        var tabIndex = "";
+        // var tab1 = "./index_tab/tab_1.html";
+        // var tab2 = "./index_tab/tab_2.html";
+        // var tab3 = "./index_tab/tab_3.html";
+        // var tab4 = "./index_tab/tab_4.html";
+        // var tab5 = "./index_tab/tab_5.html";
+        // var tab6 = "./index_tab/tab_6.html";
+
+        
+        // $("#banner #nav").find("a").on(click,function(e){
+        //     // $(this)
+        // })
+    
     })
+
+    
 </script>

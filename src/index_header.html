@@ -1,8 +1,8 @@
 <div id="navTop" class="clearFloat">
     <div id="top" class="center">
         <div id="topleft" style="margin:0;line-height: 25px;">
-            <a style="margin-left: 10px;" href="">用户登录</a>
-            <a style="margin-left: 10px;" href="">用户注册</a>
+            <a style="margin-left: 10px;" href="./login/login.html">用户登录</a>
+            <a style="margin-left: 10px;" href="./login/register.html">用户注册</a>
             <a style="margin-left: 10px" href="">
                 <img style="vertical-align: middle; border: 0;" src="./img/Connect_logo_6.png" alt="">
             </a>
@@ -55,15 +55,38 @@
 <!-- 菜单 -->
 <div id="banner">
     <div id="nav" style="font-size: 15px;">
-        <a href="#" class="iconM" style="padding: 8px 27px;">
+        <a href="#" class="iconM" style="padding: 8px 27px;" onclick="return false;">
             <i class="iconfont"></i>
             <span style="margin-right: 7px">网站首页</span>
         </a>
         <a href="#">领劵优惠直播</a>
-        <a href="#" _hover-ignore="1">实时跑量</a>
-        <a href="#" _hover-ignore="1">超级人气榜</a>
-        <a href="#" _hover-ignore="1">9块9包邮</a>
-        <a href="#" _hover-ignore="1">20元封顶</a>
-        <a href="#" _hover-ignore="1">钜惠券</a>
+        <a href="#" _hover-ignore="1" onclick="return false;">实时跑量</a>
+        <a href="#" _hover-ignore="1" onclick="return false;">超级人气榜</a>
+        <a href="#" _hover-ignore="1" onclick="return false;">9块9包邮</a>
+        <a href="#" _hover-ignore="1" onclick="return false;">20元封顶</a>
+        <a href="#" _hover-ignore="1" onclick="return false;">钜惠券</a>
     </div>
 </div>
+<script>
+    $(function(){
+        $("#banner #nav a").on("mousedown",function(e){
+            console.log($(this).index());
+            if($(this).index()==0){
+               $("section").load("index_section.html",function(){
+                    console.log("主页部分加载完成")
+                })
+            }
+            else{
+                //$("section").removeChild("div");
+                $("section").load(`index_tab/tab_${$(this).index()}.html`,function(){
+                    
+                }); 
+            }
+            
+        //      $("section").load("index_section.html",function(){
+        //     console.log("主页部分加载完成")
+        // })
+            //console.log($("section"));
+        })
+    })
+</script>
