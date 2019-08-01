@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function myScroll(){
+    if(window.pageXOffset!=undefined){
+        return {
+            left:window.pageXOffset,
+            top:window.pageYOffset,
+        }
+    }else if(document.campatMode=="CSS1Compat"){
+        return{
+            left: document.documentElement.scrollLeft,
+            top: document.documentElement.scrollTop
+        }
+    }
+    return {
+        left: document.body.scrollLeft,
+        top: document.body.scrollTop
+    }
+}
+</script>

@@ -9,10 +9,14 @@ body, textarea, input, button, select, keygen, legend {
     outline: 0;
 }
 body{
+    font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
     color: #757575;
 }
 li{
     list-style: none;
+}
+i{
+    font-style: normal;
 }
 a{
     text-decoration: none;

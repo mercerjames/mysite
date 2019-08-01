@@ -7,6 +7,8 @@
     <title>商品详情页面</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <script src="./js/jquery-1.11.1.min.js"></script>
 </head>
 <body>
@@ -26,7 +28,9 @@
         $("header").load("index_header.html",function(){
             console.log("公共头部加载完成")
         })
-        $("section").load()
+        $("section").load("productSection.html",function(){
+            console.log("商品页中间部分完成")
+        })
         $("footer").load("index_footer.html",function(){
             console.log("公共尾部加载完成")
         })  
