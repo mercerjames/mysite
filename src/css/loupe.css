@@ -1,0 +1,36 @@
+@charset "utf-8";
+.img{
+    width: 350px;
+    height: 350px;
+    position: relative;
+}
+#middleImg img{
+    width: 350px;
+    height: 350px;
+}
+#middleArea{
+    width: 100px;
+    height: 100px;
+    background: rgba(100, 222, 200, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#bigArea{
+    position: absolute;
+    left: 420px;
+    top: 50px;
+    overflow: hidden;
+    width: 400px;
+    height: 400px;
+    border: 1px solid #ccc;
+    display: none;
+    z-index: 100;
+}
+#bigArea img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 800px;
+    height: 800px;
+}

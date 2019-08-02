@@ -205,7 +205,7 @@ a {
     margin: 0 3px 0 0;
     padding: 0;
 }
-.cart-main-new .cart-tbody .item-item .p-goods{
+.cart-main .cart-tbody .item-item .p-goods{
     width: 300px;
 }
 .cart-tbody .item-item .cell{
@@ -235,7 +235,8 @@ a {
     margin-top: 2px;
 }
 .cart-tbody .item-item .p-props,.cart-main-new .cart-tbody .item-item .p-props-new{
-    width: 130px;
+    /* width: 130px; */
+    width: 600px;
     padding-right: 0;
 }
 .cart-main-new .cart-tbody .item-item .p-props-new .props-txt{
@@ -324,4 +325,7 @@ a {
 .cart-tbody .item-item .p-ops a{
     color: #666;
     display: block;
+}
+.clear{
+    clear: both;
 }
