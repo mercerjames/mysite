@@ -89,7 +89,9 @@ body #banner #nav a:hover{
 body #banner #nav a:visited{
     background-color: #bd166f;
 }
-
+.active{
+    background-color: #bd166f;
+}
 .tab{
     /* display: none; */
 }

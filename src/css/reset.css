@@ -15,7 +15,7 @@ body{
 li{
     list-style: none;
 }
-i{
+i,em{
     font-style: normal;
 }
 a{
@@ -39,6 +39,10 @@ a,button{
     content:"";
     display: block;
     clear: both;
+}
+img{
+    border: 0;
+    vertical-align: middle; 
 }
 .fl{
     float: left;

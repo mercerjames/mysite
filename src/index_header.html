@@ -69,17 +69,20 @@
 </div>
 <script>
     $(function(){
+        
         $("#banner #nav a").on("mousedown",function(e){
-            console.log($(this).index());
+           var self = this;
             if($(this).index()==0){
                $("section").load("index_section.html",function(){
-                    console.log("主页部分加载完成")
+                    $("#banner #nav").find("a").eq(0).addClass("active").siblings().removeClass("active");
+                    
                 })
             }
             else{
                 //$("section").removeChild("div");
                 $("section").load(`index_tab/tab_${$(this).index()}.html`,function(){
-                    
+                    $("#banner #nav").find("a").eq($(self).index()).addClass("active").siblings().removeClass("active");
+                    console.log($(this).index());
                 }); 
             }
             
