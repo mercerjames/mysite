@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="./css/scroll.css">
+<link rel="stylesheet" href="./css/font/iconfont.css">
 <div id="navTop" class="clearFloat">
     <div id="top" class="center">
         <div id="topleft" style="margin:0;line-height: 25px;">
@@ -67,6 +69,11 @@
         <a href="#" _hover-ignore="1" onclick="return false;">钜惠券</a>
     </div>
 </div>
+<!-- 火箭开始 -->
+<div id="rocket">
+    <span class="iconfont icon-huojian"></span>
+</div>
+<!-- 火箭结束 -->
 <script>
     $(function(){
         
@@ -91,5 +98,37 @@
         // })
             //console.log($("section"));
         })
+
+        //回到顶部模块开始
+        window.onscroll = function () {
+            if (myScroll().top >= 500) {
+                $("#rocket").fadeIn()
+                $("#rocket").on("click",function(){
+                    // console.log("点击成功")
+                    window.scrollTo(0,0)
+                })
+            } else {
+                $("#rocket").fadeOut()
+            }
+        }
+        function myScroll() {
+            //判断DTD
+            if (window.pageYOffset != undefined) {
+                return {
+                    left: window.pageXOffset,
+                    top: window.pageYOffset
+                }
+            } else if (document.compatMode == "CSS1Compat") {
+                return {
+                    left: document.documentElement.scrollLeft,
+                    top: document.documentElement.scrollTop
+                }
+            }
+            return {
+                left: document.body.scrollLeft,
+                top: document.body.scrollTop
+            }
+        }
+        //回到顶部模块结束
     })
 </script>

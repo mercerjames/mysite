@@ -18,8 +18,8 @@
 }
 #bigArea{
     position: absolute;
-    left: 420px;
-    top: 50px;
+    left: 350px;
+    top: 0px;
     overflow: hidden;
     width: 400px;
     height: 400px;

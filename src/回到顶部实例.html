@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>回到顶部的实例</title>
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <style>
+        .long{
+            width: 100%;
+            height: 2000px;
+        }
+        #rocket{
+            width: 52px;
+            height: 52px;
+            background-color: pink;
+            /* background: #fff; */
+            position: fixed;
+            right: 70px;
+            bottom: 70px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px soild #ccc;
+            font-size: 36px;
+            cursor: pointer;
+            border-radius: 50px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="long">
+        <div id="rocket"></div>
+    </div>
+</body>
+</html>
+<script>
+    $(function(){
+        window.onscroll = function(){
+        if(myScroll().top>=500){
+            $("#rocket").fadeIn()
+        }else{
+            $("#rocket").fadeOut()
+        }
+    }
+    function myScroll(){
+        //判断DTD
+        if(window.pageYOffset!=undefined){
+            return {
+                left:window.pageXOffset,
+                top:window.pageYOffset
+            }
+        }else if(document.compatMode=="CSS1Compat"){
+            return{
+                left: document.documentElement.scrollLeft,
+                top: document.documentElement.scrollTop
+            }
+        }
+        return {
+            left: document.body.scrollLeft,
+            top:document.body.scrollTop
+        }
+    }
+    })
+</script>

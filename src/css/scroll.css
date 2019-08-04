@@ -1,0 +1,23 @@
+#rocket{
+    width: 52px;
+    height: 52px;
+    background-color: pink;
+    /* background: #fff; */
+    position: fixed;
+    right: 70px;
+    bottom: 70px;
+    line-height: 52px;
+    text-align: center;
+    border: 1px soild #ccc;
+    font-size: 36px;
+    cursor: pointer;
+    border-radius: 50px;
+    display: none;
+    z-index: 200;
+}
+#rocket span{
+    font-size: 60px;
+}
+#rocket span:hover{
+    color: red;
+}

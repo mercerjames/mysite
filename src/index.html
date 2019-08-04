@@ -34,7 +34,21 @@
     <section>
         <!-- 拼接index_section.html中的主页部分 -->
     </section>
-    
+
+    <style>
+        aside{
+            text-align: center;
+            margin: 0 auto;
+            display: table;
+        }
+    </style>
+
+    <!-- 分页区域开始 -->
+    <aside>
+
+    </aside>
+    <!-- 分页区域结束 -->
+
     <!-- 页面顶部 -->
     <footer>
         <!-- 拼接index_footer.html中的页面公共头部 -->
@@ -45,18 +59,18 @@
 
 </html>
 <script>
-    $(function(){
-        $("header").load("index_header.html",function(){
+    $(function () {
+        $("header").load("index_header.html", function () {
             console.log("公共头部加载完成")
         })
-        
-        $("section").load("index_section.html",function(){
+
+        $("section").load("index_section.html", function () {
             $("#banner #nav").find("a").eq(0).addClass("active").siblings().removeClass("active");
-            
+
         })
-        $("footer").load("index_footer.html",function(){
+        $("footer").load("index_footer.html", function () {
             console.log("公共尾部加载完成")
-        })  
+        })
         //延时加载区域
         $(".showPic").lazyload({
             placeholder: "./img/loding.gif",
@@ -73,12 +87,11 @@
         // var tab5 = "./index_tab/tab_5.html";
         // var tab6 = "./index_tab/tab_6.html";
 
-        
+
         // $("#banner #nav").find("a").on(click,function(e){
         //     // $(this)
         // })
-    
+        
     })
 
-    
 </script>
