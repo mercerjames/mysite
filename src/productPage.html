@@ -105,7 +105,8 @@
 
                         </script>
                         <div class="detail-col">
-                            <a class="title clearFloat">
+                            <a class="title clearFloat"
+                                href="http://913481249.qqku.com/gotourl_q_new20160522.php?iid=590084304040&aliaccount=JUJBJUEzJUJBJUEzJUI1JUM0JUM1JUFFJUM4JUNC&fullpid=mm_29944608_98650209_18847200178&unid=Q9xZ&url=https%3A%2F%2Fuland.taobao.com%2Fcoupon%2Fedetail%3Fe%3D9Q8lyRK%252FL8kGQASttHIRqUUrCDoa8ychxOP0i8JCeCfdEIYUTkmLkJGJITp1ufUHF1D%252FQXU1AhnjuFPngcTe%252BzEhJpUUrcnYdXpgSlLBS4jA4gAtWVEmy3Y9x3IctcCWLspxGy3zBjY8IeN8lvhRA2lzrR4%252Bfrcb2XhfVVaMpqHC9ReHECXuSnvhE5CTwVXG%26traceId%3D0b013ae915645546353636977e%26union_lens%3DlensId%3A0b14f8a0_0bbc_16c46b9287a_2c97%26xId%3Dr68t0g8LMBq91O3w2m9KPfD4979rcy9gblgzDz3sOb1Dg7ZczvAeGK1ouCaCGjw4HKYk6DDu90ihb9P8R1sSX">
                                 <span class="tmall"></span>
                                 <span class="title">加厚手提式垃圾袋家用大号2卷/5卷</span>
                             </a>
@@ -150,33 +151,137 @@
                                         </b>
                                     </span>
                                 </div>
-                                <a rel="nofollow"
-                                    href="http://913481249.qqku.com/gotourl_q_new20160522.php?iid=590084304040&aliaccount=JUJBJUEzJUJBJUEzJUI1JUM0JUM1JUFFJUM4JUNC&fullpid=mm_29944608_98650209_18847200178&unid=Q9xZ&url=https%3A%2F%2Fuland.taobao.com%2Fcoupon%2Fedetail%3Fe%3D9Q8lyRK%252FL8kGQASttHIRqUUrCDoa8ychxOP0i8JCeCfdEIYUTkmLkJGJITp1ufUHF1D%252FQXU1AhnjuFPngcTe%252BzEhJpUUrcnYdXpgSlLBS4jA4gAtWVEmy3Y9x3IctcCWLspxGy3zBjY8IeN8lvhRA2lzrR4%252Bfrcb2XhfVVaMpqHC9ReHECXuSnvhE5CTwVXG%26traceId%3D0b013ae915645546353636977e%26union_lens%3DlensId%3A0b14f8a0_0bbc_16c46b9287a_2c97%26xId%3Dr68t0g8LMBq91O3w2m9KPfD4979rcy9gblgzDz3sOb1Dg7ZczvAeGK1ouCaCGjw4HKYk6DDu90ihb9P8R1sSX"
-                                    target="_blank">领券购买</a>
+                                <a rel="nofollow" href="javascript:void(0);" class="addcar">领券购买</a>
                             </div>
-                            <div class="goods-tit-type">
-                                <div class="goods-type">
-                                    <i class="tmall" title="天猫"></i>
-                                    <i class="you" title="优品"></i>
-                                </div>
+                            <!-- 添加购物车动画模块开始 -->
+                            <style>
+                                .u-flyer {
+                                    display: block;
+                                    width: 50px;
+                                    height: 50px;
+                                    border-radius: 50px;
+                                    position: fixed;
+                                    z-index: 9999;
+                                }
+
+                                /* .m-sidebar {
+                                    position: fixed;
+                                    top: 0;
+                                    right: 0;
+                                    background: #000;
+                                    z-index: 2000;
+                                    width: 35px;
+                                    height: 100%;
+                                    font-size: 12px;
+                                    color: #fff;
+                                } */
+                                #msg {
+                                    position: fixed;
+                                    top: 300px;
+                                    right: 35px;
+                                    z-index: 10000;
+                                    width: 1px;
+                                    height: 52px;
+                                    line-height: 52px;
+                                    font-size: 20px;
+                                    text-align: center;
+                                    color: #fff;
+                                    background: #360;
+                                    display: none
+                                }
+
+                            </style>
+                            <script src="./js/jquery.fly.min.js"></script>
+                            <script>
+                                $(() => {
+                                    $(".ehy-normal").on("click", function () {
+                                        var offset = $("#end").offset(); //结束的地方的元素
+
+                                        //resize窗口改变触发
+                                        $(window).resize(function () {
+                                            offset = $("#end").offset();
+                                            console.log(111)
+                                        })
+                                        $(".addcar").click(function (event) { //是$(".addcar")这个元素点击促发的 开始动画的位置就是这个元素的位置为起点
+                                            var addcar = $(this);
+                                            var img = $("#middleImg").find('img').attr('src');
+                                            var flyer = $('<img class="u-flyer" src="' + img + '">');
+
+                                            //飞
+                                            flyer.fly({
+                                                //起点
+                                                start: {
+                                                    left: event.pageX,
+                                                    top: event.pageY
+                                                },
+                                                //终点
+                                                end: {
+                                                    left: offset.left,
+                                                    top: offset.top,
+                                                    width: 0,
+                                                    height: 0
+                                                },
+                                                //到达终点后调用的
+                                                onEnd: function () {
+                                                    console.log("到达终点");
+                                                    $("#msg").show().animate({
+                                                        width: '250px'
+                                                    }, 200).fadeOut(1000);
+                                                }
+                                            })
+                                        })
+                                    })
+                                })
+                                $(() => {
+
+                                })
+                            </script>
+                            
+                            <div id="msg">已成功加入购物车！</div>
+                        <!-- 添加购物车动画模块结束 -->
+
+                        <div class="goods-tit-type">
+                            <div class="goods-type">
+                                <i class="tmall" title="天猫"></i>
+                                <i class="you" title="优品"></i>
                             </div>
-                            <div class="text2">
-                                <span>如果您喜欢此宝贝，记得分享给您的朋友，一起享优惠：</span>
-                                <div class="bdshare">
-                                    <div class="bdsharebuttonbox bdshare-button-style0-16">
-                                        <a href="#" class="bds_more"></a>
-                                        <a href="#" class="bds_qzone" title="分享到QQ空间"></a>
-                                        <a href="#" class="bds_tsina" title="分享到新浪微博"></a>
-                                        <a href="#" class="bds_weixin" title="分享到微信"></a>
-                                    </div>
+                        </div>
+                        <div class="text2">
+                            <span>如果您喜欢此宝贝，记得分享给您的朋友，一起享优惠：</span>
+                            <div class="bdshare">
+                                <div class="bdsharebuttonbox bdshare-button-style0-16">
+                                    <a href="#" class="bds_more"></a>
+                                    <a href="#" class="bds_qzone" title="分享到QQ空间"></a>
+                                    <a href="#" class="bds_tsina" title="分享到新浪微博"></a>
+                                    <a href="#" class="bds_weixin" title="分享到微信"></a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- 右侧导航栏开始 -->
+                    <style>
+                        .pos-right {
+                            position: absolute;
+                            top: 0;
+                            right: 20px;
+                            width: 125px;
+                            padding: 26px 0 14px 0;
+                            /* background: red; */
+                        }
+                    </style>
+                    <div class="pos-right">
+                    </div>
+                    <!-- 右侧导航栏结束结束 -->
                 </div>
             </div>
         </div>
+        </div>
     </section>
+    <!-- 精品模块推荐区开始 -->
+    <aside>
+
+    </aside>
+    <!-- 精品模块推荐区结束 -->
     <footer>
 
     </footer>
@@ -188,7 +293,12 @@
         $("header").load("index_header.html", function () {
             console.log("公共头部加载完成")
         })
-
+        $(".pos-right").load("product_unslider.html", function () {
+            console.log("商品详情页轮播图")
+        })
+        $("aside").load("product_aside.html", function () {
+            console.log("商品推荐区加载完成")
+        })
         $("footer").load("index_footer.html", function () {
             console.log("公共尾部加载完成")
         })

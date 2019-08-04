@@ -1,0 +1,182 @@
+@charset "utf-8";
+
+.jipin-wrap{
+    width: 1186px;
+    height: 24px;
+    line-height: 24px;
+    margin: 35px auto 20px;
+    font-size: 20px;
+    font-family: "Microsoft YaHei";
+    color: #2D2D2D;
+    display: block; 
+}
+.jipin-wrap .jinpin-tit{
+    float: left;
+    background: url(../img/jptj.png) left center no-repeat;
+    padding-left: 30px;
+    letter-spacing: 2px;
+    color: #454545;
+}
+.jipin-wrap .jinpin-txt{
+    float: left;
+    margin-left: 8px;
+    font-size: 14px;
+    padding-top: 4px;
+    color: #999;
+}
+.goods-list ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font: 12px Simsun;  
+}
+.goods-list ul li{
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 14px;
+    border: 1px solid #eee;
+    height: 400px;
+    width: 284px;
+    margin-bottom: 20px;
+    background: #fff;
+    display: block;
+    overflow: hidden; 
+}
+.goods-list ul li a.img{
+    position: relative;
+    display: block;
+    width: 284px;
+    height: 284px;
+    margin: 0;
+    padding: 0;
+}
+.goods-list ul li a.img img{
+    border: none;
+    max-width: 284px;
+    max-height: 284px;
+    vertical-align: middle;
+}
+.goods-list ul li .padding{
+    padding: 18px 12px;
+}
+.goods-list ul li .padding .coupon-wrap{
+    position: relative;
+    height: 26px;
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+}
+.goods-list ul li .padding .coupon-wrap .price{
+    height: 26px;
+    line-height: 18px;
+    color: #ff0060;
+    float: left;
+    overflow: hidden;
+}
+.goods-list ul li .padding .coupon-wrap .price b{
+    font-size: 30px;
+    padding-right: 2px;
+    line-height: 28px;
+    font-family: "Arial";
+}
+.goods-list ul li .padding i{
+    font-family: "Microsoft Yahei";
+    font-size: 14px;
+}
+.goods-list ul li .padding .coupon-wrap .old-price{
+    float: left;
+    /* width: 50px; */
+    width: 63px;
+    margin-left: 10px;
+    text-decoration: line-through;
+    height: 26px;
+    font: 14px "Microsoft Yahei";
+    color: #aaa;
+    line-height: 40px;
+}
+.goods-list ul li .padding .coupon-wrap .coupon{
+    position: absolute;
+    right: 0;
+    font: 12px "Simsun";
+    text-align: center;
+    background: #fff7fa;
+    color: #ff0060;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 8px;
+    margin-left: 10px;
+    margin: 0;
+    border: dotted 1px #ff0060;
+    border-left: none;
+    border-right: none;
+}
+.goods-list ul li .padding .coupon-wrap .coupon .quan-left{
+    position: absolute;
+    top: 0;
+    left: -2px;
+    width: 6px;
+    height: 24px;
+    background: white url(../img/cms_pc_img.png) -120px -79px no-repeat;
+}
+.goods-list ul li .padding .coupon-wrap .coupon b{
+    font-size: 14px;
+    font-family: "Microsoft Yahei";
+    float: right;
+    position: relative;
+}
+.goods-list ul li .padding .coupon-wrap .coupon em{
+    position: absolute;
+    top: 0;
+    width: 6px;
+    height: 24px;
+    background: white url(../img/cms_pc_img.png) -120px -79px no-repeat;
+}
+.goods-list ul li .padding .coupon-wrap .coupon em.quan-right{
+    right: 0;
+    background-position-x: -136px;
+}
+.goods-list ul li .padding .title{
+    height: 14px;
+    overflow: hidden;
+    display: block;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    margin-bottom: 13px;
+}
+.goods-list ul li .padding .title a{
+    color: #444;
+}
+.goods-list ul li .padding .goods-num-type{
+    display: block;
+    position: relative;
+    height: 16px;
+    line-height: 16px;
+}
+.goods-list ul li .padding .goods-num-type .goods-num{
+    color: #787878;
+    margin-left: 100px;
+}
+.goods-list ul li .padding .goods-num-type .goods-num b{
+    font-family: "Arial";
+    font-size: 12px;
+    font-weight: normal;
+    color: #fc903d;
+    padding: 0 3px;
+}
+.goods-type{
+    position: absolute;
+    right: 0;
+    top: 0; 
+}
+.goods-type i.tmall{
+    background-position-x: -78px;
+}
+.goods-type i{
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    float: left;
+    background: url(../img/cms_pc_img.png) 0 0 no-repeat;
+}
