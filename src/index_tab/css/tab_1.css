@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.search-wrap{
+    position: relative;
+    margin: 10px auto 15px;
+}
+.search-wrap img{
+    vertical-align: middle;
+}

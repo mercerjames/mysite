@@ -1,5 +1,9 @@
 @charset "utf-8";
 /* 页面最顶部 */
+a{
+    color: #666;
+    text-decoration: none;
+}
 body #navTop #top{
     font-size: 12px;
 }
