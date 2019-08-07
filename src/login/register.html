@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>register</title>
-    <script src="./js/jquery-1.11.1.min.js"></script>
+    <script src="./js/jquery-1.12.3.min.js"></script>
+    <script src="./js/jquery.idcode.js"></script>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="./css/register.css">
+    <link rel="stylesheet" href="./css/jquery.idcode.css">
 </head>
 <body>
     <div id="head"></div>
@@ -28,7 +30,7 @@
                                         <tr>
                                             <th>账号：</th>
                                             <td>
-                                                <input type="text" id="reg_qq" name="reg_qq" class="text">
+                                                <input type="text" id="reg_qq" name="uname" class="text">
                                             </td>
                                             <td style="color: #9c9c9c; padding-left: 10px;">
                                                 <label for="" class="field_notice">您要注册的帐号</label>
@@ -37,7 +39,7 @@
                                         <tr>
                                             <th>密码：</th>
                                             <td>
-                                                <input type="password" id="reg_pass" name="reg_pass" class="text">
+                                                <input type="password" id="reg_pass" name="upassword" class="text">
                                             </td>
                                             <td style="color: #9c9c9c; padding-left: 10px;">
                                                 <label for="" class="field_notice">您的登录密码</label>
@@ -46,7 +48,7 @@
                                         <tr>
                                             <th>确认密码：</th>
                                             <td>
-                                                <input type="password" id="reg_pass_confirm" name="reg_pass_confirm" class="text">
+                                                <input type="password" id="reg_pass_confirm" name="repassword" class="text">
                                             </td>
                                             <td style="color: #9c9c9c; padding-left: 10px;">
                                                 <label for="" class="field_notice">再次输入您的密码</label>
@@ -55,7 +57,7 @@
                                         <tr>
                                             <th>邮箱：</th>
                                             <td>
-                                                <input type="text" id="reg_email" name="reg_email" class="text">
+                                                <input type="text" id="reg_email" name="uemail" class="text">
                                             </td>
                                             <td style="color: #9c9c9c; padding-left: 10px;">
                                                 <label for="" class="field_notice">找回密码唯一途径，请务必输入正确</label>
@@ -64,7 +66,9 @@
                                         <tr>
                                             <th>验证码：</th>
                                             <td>
-                                                <input type="text" id="captcha" name="captcha" class="text" size="10" style="text-transform:uppercase; width: 110px;">
+                                                <!-- <input type="text" id="captcha" name="captcha" class="text" size="10" style="text-transform:uppercase; width: 110px;">
+                                                 -->
+                                                <input type="text" id ="Txtidcode" class ="txtVerification text" style="text-transform:uppercase; width: 125px;"><span id="idcode"></span>
                                             </td>
                                             <td style="color: #9c9c9c; padding-left: 10px;">
                                                 <label for="" class="field_notice">输入验证码</label>
@@ -87,7 +91,7 @@
                         <div class="login_right">
                             <h4>提示：</h4>
                             <h4 style=" margin-top:24px;">如果已经拥有帐号</h4>
-                            <a href="#" class="enter" title="现在登录"></a>
+                            <a href="./login.html" class="enter" title="现在登录"></a>
                             <div style="clear: both;"></div>
                             <h4>您还可以：</h4>
                             <br>
@@ -115,5 +119,34 @@
         $("#footer").load("footer.html",function(){
             console.log("尾部加载成功");
         })
+
+        //注册模块
+        $("form").on("submit",function(){
+            // var IsBy = $.idcode.validateCode
+            $.ajax({
+                url:"http://127.0.0.1:8080/api/reg",
+                data:$("form").serialize(),
+                type:"post",
+                dataType:"json",
+                // header:{
+                //     "Content-Type":"x-www-form-urlencoded",
+                //     "X-requseted"
+                // }
+            }).then((data)=>{
+                console.log(data)
+            })
+            return false;
+        })
+        //
+        $.idcode.setCode();//加载生成验证码方法
+        $("#Txtidcode").blur(function(){
+        var IsBy = $.idcode.validateCode()  //调用返回值，返回值结果为true或者false
+        if(IsBy){
+            alert("验证码输入正确")
+        }else {
+            alert("请输入验证码咯")
+        }
+    })
+
     })
 </script>

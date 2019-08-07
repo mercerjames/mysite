@@ -1,0 +1,241 @@
+@charset "utf-8";
+
+.tab3{
+    background-color: #EDF2F5;
+}
+.tab3 .bannerImg{
+    margin: auto;
+    height: 200px;
+    width: 1200px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-image: url(../img/tab_3Bc.png);
+    background-position: center;
+}
+
+.wrapper{
+    width: 1200px;
+}
+
+.wrapper .goods-list{
+    width: 1226px;
+    padding-bottom: 40px;
+    padding-left: 1px;
+    position: relative;
+    float: left;
+}
+
+.wrapper .goods-list #goods-items{
+    width: 280px;
+    height: 470px;
+    float: left;
+    margin-right: 26px;
+    position: relative;
+    margin-bottom: 30px;
+    background-color: white;
+}
+
+.wrapper .goods-list #goods-items .top{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background: url(../img/live-img.png) -180px -182px no-repeat;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    font-size: 20px;
+    font-family: Arial;
+    z-index: 2;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content{
+    padding: 14px;
+    width: 280px;
+    height: 470px;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: white;
+    border: white 1px solid;
+    box-sizing: border-box;
+}
+.wrapper .goods-list #goods-items .goods-item-content:hover{
+    border-color: #ff4400;
+    height: 500px;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-img{
+    width: 250px;
+    height: 250px;
+    position: relative; 
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-img img{
+    width: 250px;
+    height: 250px;
+    border: none;
+}
+.goods-img-line{
+    position: absolute;
+    height: 32px;
+    width: 1px;
+    background: white;
+    left: 50%;
+    bottom: 0;
+    z-index: 3;
+    opacity: .3;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .tg-show{
+    margin: 20px 0 21px;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .tg-show p{
+    text-align: center;
+    font-family: "Microsoft Yahei";
+    font-size: 16px;
+    color: #333;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .tg-show p b{
+    font-size: 18px;
+    color: #fc5202;
+    padding: 0 3px;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-tit{
+    height: 14px;
+    display: block;
+    text-align: center;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-tit a{
+    color: #666;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-slider{
+    height: 2px;
+    padding: 10px 0 10px;
+    margin: 3px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-slider .slider{
+    height: 2px;
+    width: 100%;
+    display: block;
+    background: #eee;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-slider .slider em{
+    background: #fc5202;
+    width: 0;
+    display: block;
+    height: 2px;
+    transition: width 1s ease-out;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-qjy{
+    position: relative;
+    text-align: center;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-qjy .goods-price{
+    width: 33%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-right: #e7e7e7 1px solid;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-qjy {
+    font-family: Arial;
+    color: #454554;
+    font-size: 18px;
+    margin-bottom: 3px;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-qjy span{
+    padding: 0;
+    color: #a5a5a5;
+    font-size:14px;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-qjy .goods-quan{
+    width: 33%;
+    margin-left: 33.5%;
+    border-right: #e7e7e7 1px solid;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-qjy p{
+    font-family: Arial;
+    color: #454554;
+    font-size: 18px;
+    margin-bottom: 3px;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-qjy p i{
+    font-family: "Microsoft Yahei";
+    font-size: 12px;
+    color: #aaa; 
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-sale{
+    display: block;
+    margin: 12px 0 17px;
+    position: relative;
+    height: 16px;
+    line-height: 16px;
+    margin-right: -10px;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-sale span{
+    color: #787878;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .goods-sale b{
+    color: #fc6f03;
+    font-family: Arial;
+    margin-left: 5px;
+}
+
+.goods-info .tag{
+    position: absolute;
+    right: 0;
+    height: 16px;
+    line-height: 16px;
+    top: 0;
+}
+
+.goods-info .tag i{
+    width: 16px;
+    height: 16px;
+    float: left;
+    background: url(../img/live-img.png) -353px -125px no-repeat;
+    margin-right: 4px;
+}
+
+.goods-info .tag i.tag-tmall{
+    background-position: -37px -125px;
+}
+
+.goods-info .tag i.tag-gold{
+    background-position: -63px -125px;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .type{
+    bottom: 5px;
+    position: relative;
+    display:none;
+}
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .type span.margin-num{
+    color: #666;
+}
+
+.wrapper .goods-list #goods-items .goods-item-content .goods-info .type span.margin-num b{
+    color: #ff4400;
+    font-family: Arial;
+}

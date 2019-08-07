@@ -90,7 +90,7 @@
             }
             else{
                 //$("section").removeChild("div");
-                $("section").load(`index_tab/tab_${$(this).index()}.html`,function(){
+                $("section").load(`./tab_${$(this).index()}.html`,function(){
                     $("#banner #nav").find("a").eq($(self).index()).addClass("active").siblings().removeClass("active");
                     console.log($(this).index());
                 }); 

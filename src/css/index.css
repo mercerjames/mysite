@@ -335,7 +335,8 @@ body #dtk_main #content #quan_zhibo .live .cat-wrap .cat-list ul{
 body #dtk_main #content #quan_zhibo .live .cat-wrap .cat-list ul li{
     list-style: none;
     float: left;
-    margin-right: 17px;
+    /* margin-right: 17px; */
+    margin-right: 10px;
 }
 body #dtk_main #content #quan_zhibo .live .cat-wrap .cat-list ul li a{
     color: #4C4C4C; 

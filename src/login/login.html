@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="./css/login.css">
     <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 </head>
 <body>
     <div id="head"></div>
@@ -20,14 +21,14 @@
                             <h2>
                                 <b title="LOGIN用户登录" class="login"></b>
                             </h2>
-                            <form action="#" id="login_form" method = "post" class = "bg">
+                            <form  id="login_form"  class = "bg">
                                <input type="hidden" name="form_submit" value="ok">
                                <table style="border-collapse: collapse;">
                                     <tbody>
                                         <tr>
                                             <th>用户名：</th>
                                             <td>
-                                               <input type="text" class="text" name="userqq" id="userqq"> 
+                                               <input type="text" class="text" name="uname" id="userqq"> 
                                             </td>
                                             <td style="color: #9c9c9c; padding-left: 10px;">
                                                 <label for="" class="field_notice"></label>
@@ -36,7 +37,7 @@
                                         <tr>
                                             <th>密&nbsp;&nbsp;&nbsp;码：</th>
                                             <td>
-                                                <input type="password" class="text" name="userpass" id="userpass">
+                                                <input type="password" class="text" name="upassword" id="userpass">
                                             </td>
                                             <td style="color: #9c9c9c; padding-left: 10px;">
                                                 <label for="" class="field_notice"></label>
@@ -83,7 +84,7 @@
                                 <li class="ico01">购买本站产品</li>
                                 <li class="ico02">给其他QQ发货</li>
                             </ol>
-                            <a href="#" title = "立即注册" class="login_btn"></a>
+                            <a href="./register.html" title = "立即注册" class="login_btn"></a>
                         </div>
                     </div>
                 </div>
@@ -100,6 +101,28 @@
         })
         $("#footer").load("footer.html",function(){
             console.log("底部加载成功")
+        })
+
+        //登录逻辑
+        $("form").on("submit",function(){
+            // var IsBy = $.idcode.validateCode
+            $.ajax({
+                url:"http://127.0.0.1:8080/api/login",
+                data:$("form").serialize(),
+                type:"post",
+                dataType:"json",
+                // header:{
+                //     "Content-Type":"x-www-form-urlencoded",
+                //     "X-requseted"
+                // }
+            }).then((data)=>{
+                console.log(data)
+                // localStorage.setItem("userInfo",JSON.stringify(data.data))
+                $.cookie("userInfo",JSON.stringify(data.data),{
+                    expires:10
+                })
+            })
+            return false;
         })
     })
 </script>
