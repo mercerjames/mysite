@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,14 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="./css/register.css">
     <link rel="stylesheet" href="./css/jquery.idcode.css">
+    <style>
+        body{
+            background: url(./img/background.jpg) no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
+
 <body>
     <div id="head"></div>
     <div class="content">
@@ -19,13 +27,13 @@
                 <div class="wrap_child">
                     <div class="login_con">
                         <div class="login_fill_in">
-                            <form action="#" name id="register_form" method="post" >
+                            <form action="#" name id="register_form" method="post">
                                 <table style="border-collapse: collapse;">
                                     <tbody>
                                         <tr>
                                             <td colspan="3">
                                                 <h4>填写用户注册信息</h4>
-                                            </td>   
+                                            </td>
                                         </tr>
                                         <tr>
                                             <th>账号：</th>
@@ -48,7 +56,8 @@
                                         <tr>
                                             <th>确认密码：</th>
                                             <td>
-                                                <input type="password" id="reg_pass_confirm" name="repassword" class="text">
+                                                <input type="password" id="reg_pass_confirm" name="repassword"
+                                                    class="text">
                                             </td>
                                             <td style="color: #9c9c9c; padding-left: 10px;">
                                                 <label for="" class="field_notice">再次输入您的密码</label>
@@ -68,7 +77,9 @@
                                             <td>
                                                 <!-- <input type="text" id="captcha" name="captcha" class="text" size="10" style="text-transform:uppercase; width: 110px;">
                                                  -->
-                                                <input type="text" id ="Txtidcode" class ="txtVerification text" style="text-transform:uppercase; width: 125px;"><span id="idcode"></span>
+                                                <input type="text" id="Txtidcode" class="txtVerification text"
+                                                    style="text-transform:uppercase; width: 125px;"><span
+                                                    id="idcode"></span>
                                             </td>
                                             <td style="color: #9c9c9c; padding-left: 10px;">
                                                 <label for="" class="field_notice">输入验证码</label>
@@ -110,43 +121,123 @@
     </div>
     <div id="footer"></div>
 </body>
+
 </html>
 <script>
-    $(function(){
-        $("#head").load("header.html",function(){
+    $(function () {
+        $("#head").load("header.html", function () {
             console.log("头部加载成功");
         })
-        $("#footer").load("footer.html",function(){
+        $("#footer").load("footer.html", function () {
             console.log("尾部加载成功");
         })
 
+        $.ajax({async:false})
+
         //注册模块
-        $("form").on("submit",function(){
+        //reg_qq reg_pass reg_pass_confirm reg_email
+        $("#reg_qq").blur(function () {
+            var reg = /^((13[0-9])|(14[5|7])(15([0-3]|[5-9]))|(18[05-9]))\d{8}$/;
+            var str = $(this).val();
+            if (str.trim() == 0) {
+                alert("用户名不能为空");
+                return false;
+            }
+            if (!reg.test(str)) {
+                alert("请输入正确格式的用户名");
+                $(this).val("");
+                return false;
+            }
+            return false;
+        })
+        var confirmPass;
+        $("#reg_pass").blur(function () {
+            var reg = /^[a-zA-Z_]\w{5,14}$/;
+            var str = $(this).val();
+            if (str.trim() == 0) {
+                alert("密码不能为空");
+                return false;
+            }
+            if (!reg.test(str)) {
+                alert("请输入正确格式的密码");
+                $(this).val("");
+                return false;
+            }
+            confirmPass = $(this).val();
+            return false;
+        })
+
+        $("#reg_pass_confirm").blur(function () {
+            var str = $(this).val();
+            if (str.trim() == 0) {
+                alert("确认密码不能为空");
+                return false;
+            }
+            if (str != confirmPass) {
+                alert("两次密码不一样");
+                $(this).val("");
+                return false;
+            }
+            return false;
+        })
+
+        $("#reg_email").blur(function () {
+            var str = $(this).val();
+            var reg = /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/;
+            if (str.trim() == 0) {
+                alert("邮箱地址不能为空");
+                return false;
+            }
+            if (!reg.test(str)) {
+                alert("邮箱格式不正确");
+                $(this).val("");
+                return false;
+            }
+            return false;
+        })
+        // $.idcode.setCode();//加载生成验证码方法
+        // $("#Txtidcode").blur(function(){
+        //     var str = $(this).val();
+        //     if(str.trim()==0){
+        //         alert("验证码别为空咯");
+        //         return false;
+        //     }
+        //     var IsBy = $.idcode.validateCode()  //调用返回值，返回值结果为true或者false
+        //     if(IsBy){
+        //         alert("验证码输入正确")
+        //         return false;
+        //     }else {
+        //         alert("请输入正确的验证码咯")
+        //         $(this).val("");
+        //         return false;
+        //     }
+        //     return false;
+        // })
+
+
+
+    })
+    $(() => {
+        $("form").on("submit", function () {
             // var IsBy = $.idcode.validateCode
             $.ajax({
-                url:"http://127.0.0.1:8080/api/reg",
-                data:$("form").serialize(),
-                type:"post",
-                dataType:"json",
+                url: "http://127.0.0.1:8080/api/reg ",
+                data: $("form").serialize(),
+                type: "post",
+                dataType: "json",
                 // header:{
                 //     "Content-Type":"x-www-form-urlencoded",
                 //     "X-requseted"
                 // }
-            }).then((data)=>{
+            }).then((data) => {
                 console.log(data)
+                if (data.status == -2) {
+                    alert("用户已经存在");
+                    return false;
+                }
+                //window.location.href = "./login.html";
             })
             return false;
         })
-        //
-        $.idcode.setCode();//加载生成验证码方法
-        $("#Txtidcode").blur(function(){
-        var IsBy = $.idcode.validateCode()  //调用返回值，返回值结果为true或者false
-        if(IsBy){
-            alert("验证码输入正确")
-        }else {
-            alert("请输入验证码咯")
-        }
-    })
-
     })
 </script>

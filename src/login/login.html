@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,14 @@
     <link rel="stylesheet" href="./css/login.css">
     <script src="../js/jquery-1.11.1.min.js"></script>
     <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <style>
+        body {
+            background: url(./img/background.jpg) no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
+
 <body>
     <div id="head"></div>
     <div class="content">
@@ -21,14 +29,14 @@
                             <h2>
                                 <b title="LOGIN用户登录" class="login"></b>
                             </h2>
-                            <form  id="login_form"  class = "bg">
-                               <input type="hidden" name="form_submit" value="ok">
-                               <table style="border-collapse: collapse;">
+                            <form id="login_form" class="bg">
+                                <input type="hidden" name="form_submit" value="ok">
+                                <table style="border-collapse: collapse;">
                                     <tbody>
                                         <tr>
                                             <th>用户名：</th>
                                             <td>
-                                               <input type="text" class="text" name="uname" id="userqq"> 
+                                                <input type="text" class="text" name="uname" id="userqq">
                                             </td>
                                             <td style="color: #9c9c9c; padding-left: 10px;">
                                                 <label for="" class="field_notice"></label>
@@ -47,8 +55,8 @@
                                             <th></th>
                                             <td colspan="2">
                                                 <input type="submit" class="enter" value name="Submit">
-                                                <div style = "margin-top:20px;margin-left:10px;float:right;">
-                                                    <a href="#" target = "blank">
+                                                <div style="margin-top:20px;margin-left:10px;float:right;">
+                                                    <a href="#" target="blank">
                                                         忘记密码？
                                                         <br>
                                                         购物助手找回
@@ -57,8 +65,8 @@
                                             </td>
                                         </tr>
                                     </tbody>
-                               </table> 
-                               <input type="hidden" name="ref_url">
+                                </table>
+                                <input type="hidden" name="ref_url">
                             </form>
                             <table style="border-collapse: collapse;">
                                 <tbody>
@@ -66,11 +74,11 @@
                                         <td></td>
                                         <td>
                                             <a href="#" target="_blank">
-                                                <img height ="32" border="0" src="./img/qq_login.png" alt="">
+                                                <img height="32" border="0" src="./img/qq_login.png" alt="">
                                             </a>
                                             &nbsp;
                                             <a href="#" target="_blank">
-                                                <img height ="32" border="0" src="./img/weibo_login.png" alt="">
+                                                <img height="32" border="0" src="./img/weibo_login.png" alt="">
                                             </a>
                                         </td>
                                     </tr>
@@ -78,13 +86,13 @@
                             </table>
                         </div>
                         <div class="login_right">
-                            <h4>友情提示:  如果您还不是会员，请注册</h4>
+                            <h4>友情提示: 如果您还不是会员，请注册</h4>
                             <p>注册之后你就可以</p>
                             <ol>
                                 <li class="ico01">购买本站产品</li>
                                 <li class="ico02">给其他QQ发货</li>
                             </ol>
-                            <a href="./register.html" title = "立即注册" class="login_btn"></a>
+                            <a href="./register.html" title="立即注册" class="login_btn"></a>
                         </div>
                     </div>
                 </div>
@@ -93,36 +101,63 @@
     </div>
     <div id="footer"></div>
 </body>
+
 </html>
 <script>
-    $(()=>{
-        $("#head").load("header.html",function(){
+    $(() => {
+        $("#head").load("header.html", function () {
             console.log("头部加载成功")
         })
-        $("#footer").load("footer.html",function(){
+        $("#footer").load("footer.html", function () {
             console.log("底部加载成功")
         })
 
         //登录逻辑
-        $("form").on("submit",function(){
+        $("form").on("submit", function () {
             // var IsBy = $.idcode.validateCode
-            $.ajax({
-                url:"http://127.0.0.1:8080/api/login",
-                data:$("form").serialize(),
-                type:"post",
-                dataType:"json",
-                // header:{
-                //     "Content-Type":"x-www-form-urlencoded",
-                //     "X-requseted"
-                // }
-            }).then((data)=>{
-                console.log(data)
-                // localStorage.setItem("userInfo",JSON.stringify(data.data))
-                $.cookie("userInfo",JSON.stringify(data.data),{
-                    expires:10
-                })
-            })
-            return false;
+            var str1 = $("#userqq").val();
+            var str2 = $("#userpass").val();
+
+            //13 14 15 18 开头的11位手机号
+            var reg1 = /^((13[0-9])|(14[5|7])(15([0-3]|[5-9]))|(18[05-9]))\d{8}$/;
+
+            //密码(只能使用数字字母下划线, 且数字不能开头, 长度在6-15位)
+            var reg2 = /^[a-zA-Z_]\w{5,14}$/;
+            if (reg1.test(str1)) {
+                if (reg2.test(str2)) {
+                    $.ajax({
+                        url: "http://127.0.0.1:8080/api/login",
+                        data: $("form").serialize(),
+                        type: "post",
+                        dataType: "json",
+                        // header:{
+                        //     "Content-Type":"x-www-form-urlencoded",
+                        //     "X-requseted"
+                        // }
+                    }).then((data) => {
+                        console.log(data)
+                        // localStorage.setItem("userInfo",JSON.stringify(data.data))
+                        if (data.status == -1) {
+                            alert("用户名或密码不正确");
+                            return false;
+                        }
+                        $.cookie("userInfo", JSON.stringify(data.data), {
+                            expires: 10
+                        })
+                    })
+                    // window.location.href = "./../index.html";
+                    return false;
+                } else {
+                    alert("请输入正确格式的密码")
+                    return false;
+                }
+                return false;
+            } else {
+                alert("请输入正确格式的用户名")
+                return false;
+            }
+
+            // return false;
         })
     })
 </script>

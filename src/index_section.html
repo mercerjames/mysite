@@ -60,7 +60,7 @@
             </div>
             <!-- 轮播 -->
             <div class="unslider swiper-container">
-                
+
 
             </div>
             <!-- 右边大图 -->
@@ -81,7 +81,7 @@
         </div>
     </div>
     <div id="content" class="center" style="padding-bottom: 58px;">
-        
+
         <div class="divider">
             -QQ913481249
         </div>
@@ -107,13 +107,13 @@
                 <!--  展示商品1开始 -->
                 <div class="pro_detail fl">
                     <a href="./productPage.html" rel="nofollow" isconvert="1" target="_blank">
-                        <img data-original="./productImg/O1CN018KR3Nx2HXKUI4LwSK_!!2863069160.jpg_300x300.jpg" alt="" height="272" class="showPic show"
-                            sytle="border: 0;max-width:272px;">
+                        <img data-original="http://127.0.0.1:8080/images/pic1.jpg" alt="" height="272"
+                            class="showPic show" sytle="border: 0;max-width:272px;">
                     </a>
                     <div class="pro_intro fr">
                         <p class="pro_title">
                             <a href="./productPage.html" target="_blank" isconvert="1" title="加厚手提式垃圾袋家用大号2卷/5卷"
-                                style="font-size: 16px;">加厚手提式垃圾袋家用大号2卷/5卷</a>
+                                style="font-size: 16px;"></a>
                         </p>
                         <div class="pro_price">
                             <span class="coupon">
@@ -157,12 +157,24 @@
                         </div>
                     </div>
                 </div>
+                <script>
+                    $(() => {
+                        $.ajax({
+                            url: "http://127.0.0.1:8080/api/goods",
+                            type: "get",
+                            dataType: "json"
+                        }).done((data) => {
+                            console.log(data[0])
+                            $(".pro_title a").text(data[0].pName)
+                        })
+                    })
+                </script>
                 <!-- 展示商品1结束 -->
                 <!-- 展示商品2开始 -->
                 <div class="pro_detail fr">
                     <a href="#" rel="nofollow" isconvert="1" target="_blank">
-                        <img data-original="./productImg/O1CN018KR3Nx2HXKUI4LwSK_!!2863069160.jpg_300x300.jpg" alt="" height="272" class="showPic show"
-                            sytle="border: 0;max-width:272px;">
+                        <img data-original="http://127.0.0.1:8080/images/pic2.jpg" alt="" height="272"
+                            class="showPic show" sytle="border: 0;max-width:272px;">
                     </a>
                     <div class="pro_intro fr">
                         <p class="pro_title">
@@ -215,8 +227,8 @@
                 <!-- 展示商品3开始 -->
                 <div class="pro_detail fl">
                     <a href="#" rel="nofollow" isconvert="1" target="_blank">
-                        <img data-original="./productImg/O1CN018KR3Nx2HXKUI4LwSK_!!2863069160.jpg_300x300.jpg" alt="" height="272" class="showPic show"
-                            sytle="border: 0;max-width:272px;">
+                        <img data-original="http://127.0.0.1:8080/images/pic3.png" alt="" height="272"
+                            class="showPic show" sytle="border: 0;max-width:272px;">
                     </a>
                     <div class="pro_intro fr">
                         <p class="pro_title">
@@ -269,8 +281,8 @@
                 <!-- 展示商品4开始 -->
                 <div class="pro_detail fr">
                     <a href="#" rel="nofollow" isconvert="1" target="_blank">
-                        <img data-original="./productImg/O1CN018KR3Nx2HXKUI4LwSK_!!2863069160.jpg_300x300.jpg" alt="" height="272" class="showPic show"
-                            sytle="border: 0;max-width:272px;">
+                        <img data-original="http://127.0.0.1:8080/images/pic4.jpg" alt="" height="272"
+                            class="showPic show" sytle="border: 0;max-width:272px;">
                     </a>
                     <div class="pro_intro fr">
                         <p class="pro_title">
@@ -323,8 +335,8 @@
                 <!-- 展示商品5开始 -->
                 <div class="pro_detail fl">
                     <a href="#" rel="nofollow" isconvert="1" target="_blank">
-                        <img data-original="./productImg/O1CN018KR3Nx2HXKUI4LwSK_!!2863069160.jpg_300x300.jpg" alt="" height="272" class="showPic show"
-                            sytle="border: 0;max-width:272px;">
+                        <img data-original="http://127.0.0.1:8080/images/pic5.jpg" alt="" height="272"
+                            class="showPic show" sytle="border: 0;max-width:272px;">
                     </a>
                     <div class="pro_intro fr">
                         <p class="pro_title">
@@ -377,8 +389,8 @@
                 <!-- 展示商品6开始 -->
                 <div class="pro_detail fr">
                     <a href="#" rel="nofollow" isconvert="1" target="_blank">
-                        <img data-original="./productImg/O1CN018KR3Nx2HXKUI4LwSK_!!2863069160.jpg_300x300.jpg" alt="" height="272" class="showPic show"
-                            sytle="border: 0;max-width:272px;">
+                        <img data-original="http://127.0.0.1:8080/images/pic6.jpg" alt="" height="272"
+                            class="showPic show" sytle="border: 0;max-width:272px;">
                     </a>
                     <div class="pro_intro fr">
                         <p class="pro_title">
@@ -476,11 +488,11 @@
                         <a href="#" class="tag-fixed">价格</a>
                     </div>
                     <div class="goods-pages-page clearFloat">
-                        <span class="pagebtn pre-page"><</span> 
-                            <span class="page-num">
+                        <span class="pagebtn pre-page">
+                            <</span> <span class="page-num">
                                 <b style="color: #ff6255;"></b>
                                 /319
-                            </span>
+                        </span>
                         <span class="pagebtn next-page">></span>
                     </div>
                 </div>
@@ -491,7 +503,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -525,7 +538,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -559,7 +573,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -593,7 +608,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt=""  class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -627,7 +643,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -661,7 +678,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -695,7 +713,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -729,7 +748,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -763,7 +783,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -797,7 +818,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -831,7 +853,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -865,7 +888,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -899,7 +923,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -933,7 +958,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -967,7 +993,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1001,7 +1028,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1035,7 +1063,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1069,7 +1098,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1103,7 +1133,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1137,7 +1168,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1171,7 +1203,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1205,7 +1238,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1239,7 +1273,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1273,7 +1308,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1307,7 +1343,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1341,7 +1378,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1375,7 +1413,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1409,7 +1448,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1443,7 +1483,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1477,7 +1518,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1511,7 +1553,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1545,7 +1588,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1579,7 +1623,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1613,7 +1658,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1647,7 +1693,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1681,7 +1728,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1715,7 +1763,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1749,7 +1798,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1783,7 +1833,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1817,7 +1868,8 @@
                         <li>
                             <a href="#" class="img" rel="nofollow" target="_blank">
                                 <i class="today-new"></i>
-                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg" alt="" class="showPic show">
+                                <img data-original="./productImg2/O1CN01s0ZXrt1S86I0YHN8R_!!2982272201.jpg_310x310.jpg"
+                                    alt="" class="showPic show">
                             </a>
                             <div class="goods-padding">
                                 <div class="coupon-wrap clearFloat">
@@ -1859,30 +1911,29 @@
 
     <style>
         /* 领券优惠商品区分页样式 开始 */
-            .good-list ul li{
+        .good-list ul li {}
 
-            }
+        .paishu1 {
+            text-align: center;
+            margin: 40px auto;
+            margin-top: -66px;
+            display: table;
+        }
 
-            .paishu1{
-                text-align: center;
-                margin: 40px auto;
-                margin-top: -66px;
-                display: table;
-            }
-            .paishu1 a{
-                display: block;
-                font-size: 14px;
-                font-family: 寰蒋闆呴粦;
-                line-height: 14px;
-                color: rgb(51, 51, 51);
-                float: left;
-                padding: 10px 14px;
-                text-decoration: none;
-                margin: 0px 2px;
-                border-right: 1px solid rgb(153, 153, 153);
-                border-bottom: 1px solid rgb(153, 153, 153);
-                background: rgb(255, 255, 255);
-            }
+        .paishu1 a {
+            display: block;
+            font-size: 14px;
+            font-family: 寰蒋闆呴粦;
+            line-height: 14px;
+            color: rgb(51, 51, 51);
+            float: left;
+            padding: 10px 14px;
+            text-decoration: none;
+            margin: 0px 2px;
+            border-right: 1px solid rgb(153, 153, 153);
+            border-bottom: 1px solid rgb(153, 153, 153);
+            background: rgb(255, 255, 255);
+        }
 
         /* 领券优惠商品区分页样式 结束 */
     </style>
@@ -1898,8 +1949,8 @@
     </div>
 </div>
 <script>
-    $(()=>{
-        $(".unslider").load("index_unslider.html",function(){
+    $(() => {
+        $(".unslider").load("index_unslider.html", function () {
             console.log("主页轮播图部分加载完成")
         })
         $(".showPic").lazyload({
@@ -1908,9 +1959,9 @@
             // effect(特效),值有show(直接显示),fadeIn(淡入),slideDown(下拉)等,常用fadeIn
             threshold: -200, // 提前开始加载
             //用图片提前占位
-        },function(){
+        }, function () {
             console.log("延时加载启动成功")
         });
     })
-    
+
 </script>

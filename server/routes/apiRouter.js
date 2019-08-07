@@ -1,5 +1,7 @@
 import express from 'express';
 import db from "./../lib/DbHelper";
+import fs from "fs";//filesystem
+
 let router = express.Router();
 
 
@@ -47,6 +49,32 @@ router.post("/reg",(req,res,next)=>{
         res.json({"msg":"注册失败",status:-2,err})
     });
 });
+
+router.get("/goods",(req,res,next)=>{
+//fs模块
+
+//同步方法，返回结果
+    var tmpPid = req.query.pid==undefined?0:req.query.pid;//接受前端发过来的url带参数得到它的参数
+    var goodsStr = fs.readFileSync("./data/goodsList.json",{
+        encoding:"utf-8",  //返回的编码就是utf-8格式
+        flag:"r"
+    });
+    // console.log(JSON.parse(goodsStr));
+    const goodsList = JSON.parse(goodsStr);
+    var queryList =  goodsList.filter((el)=>{
+        return el.pId.indexOf(tmpPid) != -1;
+    })
+    if(req.query.pid == undefined){
+        res.json(goodsList);
+    }else{
+        res.json(queryList);
+    }
+    
+//异步方法，用回调函数
+    // var goodsStr = fs.readFile("./../data/goodsList.json",function(err,data){
+    //     console.log(data)
+    // })
+})
 
 module.exports={
     router

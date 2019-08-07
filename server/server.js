@@ -17,6 +17,11 @@ app.use(cookieSession({
     expires: 1000*60*20
 }));
 
+//搭建一个静态资源服务器
+//把public文件往外暴露了，人人都能访问public了
+app.use(express.static("./public"));
+
+
 //拦截器
 app.all("*",(req,res,next)=>{
     res.header("Content-Type","application/json;charset=utf-8");
