@@ -329,3 +329,106 @@ a {
 .clear{
     clear: both;
 }
+
+/* 底部的结算栏样式 */
+.fixed-bottom {
+    position: fixed;
+    bottom: 0px;
+    z-index: 999; 
+}
+.cart-toolbar{
+    width: 100%;
+    background: skyblue;
+    border: 1px solid #f0f0f0;
+}
+.toolbar-wrap{
+    position: relative;
+    width: 988px;
+    margin: 0 auto;
+}
+.toolbar-wrap .selected-item-list{
+    position: absolute;
+    z-index: 10;
+    top: -122px;
+    left: 0;
+    height: 122px;
+}
+.hide{
+    display: none;
+}
+.toolbar-wrap .options-box{
+    position: relative;
+    height: 50px;
+}
+.toolbar-wrap .select-all{
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    padding: 16px 0 16px 9px;
+    white-space: nowrap; 
+}
+.cart-checkbox{
+    position: relative;
+    z-index: 3;
+    float: left;
+    margin-right: 5px;
+}
+.toolbar-wrap .operation{
+    float: left;
+    height: 50px;
+    width: 310px;
+    line-height: 50px;
+}
+.toolbar-wrap .operation a{
+    float: left;
+    margin-left: 5px;
+    color: #666;
+}
+.toolbar-wrap .operation .cleaner-opt{
+    font-weight: 700;
+    position: relative;
+}
+.clr{
+    display: block;
+    overflow: hidden;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+}
+.toolbar-wrap .toolbar-right,.toolbar-wrap .toolbar-right-new{
+    position: absolute;
+    height: 52px;
+    right: 0;
+    top: -1px;
+    width: 720px;
+}
+.toolbar-wrap .toolbar-right-new .normal .comm-right{
+    float: right;
+    width: 650px;
+}
+
+.toolbar-wrap .btn-area a.submit-btn{
+    display: block;
+    position: relative;
+    width: 94px;
+    height: 52px;
+    line-height: 52px;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    font-family: "Microsoft YaHei";
+    background: #e54346;
+    overflow: hidden;
+}
+
+.toolbar-wrap .btn-area a.submit-btn b{
+    display: block;
+    position: absolute;
+    width: 94px;
+    height: 52px;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background: url(../img/cart-submit-btn-2018.png) 0 0 no-repeat;
+}

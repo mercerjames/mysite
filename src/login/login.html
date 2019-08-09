@@ -142,7 +142,12 @@
                             return false;
                         }
                         $.cookie("userInfo", JSON.stringify(data.data), {
-                            expires: 10
+                            expires: 10,
+                            path:'/'
+                        })
+                        $.cookie("token",data.token,{
+                            expires: 10,
+                            path:'/'
                         })
                     })
                     // window.location.href = "./../index.html";

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/product.css">
     <link rel="stylesheet" href="./css/footer.css">
     <script src="./js/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <link rel="stylesheet" href="./css/loupe.css">
 </head>
 
@@ -46,6 +47,7 @@
                             <!-- 放大镜模块开始 -->
                             <div id="middleImg">
                                 <img src="./productImg/1d993cdd04a6be35.jpg" alt="">
+                                <!--src="./productImg/1d993cdd04a6be35.jpg"-->
                                 <div id="middleArea" style="display: none;"></div>
                             </div>
                             <div id="bigArea">
@@ -107,12 +109,12 @@
                         <div class="detail-col">
                             <a class="title clearFloat"
                                 href="http://913481249.qqku.com/gotourl_q_new20160522.php?iid=590084304040&aliaccount=JUJBJUEzJUJBJUEzJUI1JUM0JUM1JUFFJUM4JUNC&fullpid=mm_29944608_98650209_18847200178&unid=Q9xZ&url=https%3A%2F%2Fuland.taobao.com%2Fcoupon%2Fedetail%3Fe%3D9Q8lyRK%252FL8kGQASttHIRqUUrCDoa8ychxOP0i8JCeCfdEIYUTkmLkJGJITp1ufUHF1D%252FQXU1AhnjuFPngcTe%252BzEhJpUUrcnYdXpgSlLBS4jA4gAtWVEmy3Y9x3IctcCWLspxGy3zBjY8IeN8lvhRA2lzrR4%252Bfrcb2XhfVVaMpqHC9ReHECXuSnvhE5CTwVXG%26traceId%3D0b013ae915645546353636977e%26union_lens%3DlensId%3A0b14f8a0_0bbc_16c46b9287a_2c97%26xId%3Dr68t0g8LMBq91O3w2m9KPfD4979rcy9gblgzDz3sOb1Dg7ZczvAeGK1ouCaCGjw4HKYk6DDu90ihb9P8R1sSX">
-                                <span class="tmall"></span>
-                                <span class="title">加厚手提式垃圾袋家用大号2卷/5卷</span>
+                                <span class="tmall"></span> <!-- 天猫小图标 -->
+                                <span class="title"></span>
                             </a>
                             <div class="desc">
                                 <span style="color: #f00;">
-                                    推荐理由：【抖音人气好物榜，4.9超高评分，手提式拍2件送100只平口垃圾袋，平口拍3件送100只平口垃圾袋】无限回购的超值好货！加厚加大垃圾袋，新料环保无异味。
+
                                 </span>
                             </div>
                             <div class="coupon-wrap clearFloat">
@@ -121,33 +123,73 @@
                                     券后价&nbsp;&nbsp;
                                     <b>
                                         ￥
-                                        <i>5.90</i>
+                                        <i></i>
                                     </b>
                                 </span>
                                 <span class="org-price">
                                     在售价 ¥
-                                    <i>8.9</i>
+                                    <i></i>
                                 </span>
                             </div>
                             <div class="text-wrap">
                                 <span class="text-wrap-span">
                                     已领券
-                                    <i>9602</i>
+                                    <i></i>
                                     张，手慢无
                                 </span>
                                 <span>
                                     已有
-                                    <i>1374356</i>
+                                    <i></i>
                                     人购买
                                 </span>
                             </div>
                             <div class="ehy-normal clearFloat">
+                                <!-- 数量添加模块开始 -->
+                                <style>
+                                    .ehy-normal p {
+                                        position: absolute;
+                                        width: 100px;
+                                        height: 100px;
+                                        top: 0;
+                                        left: 210px;
+                                    }
+
+                                    .ehy-normal p button {
+                                        float: left;
+                                    }
+
+                                    .ehy-normal p input {
+                                        float: left;
+                                        width: 20px;
+                                    }
+                                </style>
+                                <p>
+                                    <button class="reduce">-</button>
+                                    <input class="num" id="num" type="text" value="1">
+                                    <button class="add">+</button>
+                                </p>
+                                <script>
+
+                                    $(() => {
+                                        $(".ehy-normal .reduce").on("click", function () {
+                                            if ($(this).next("input").val() <= 1) {
+                                                return;
+                                            }
+                                            $(this).next("input").val(($(this).next("input").val() - 1))
+                                        })
+                                        $(".ehy-normal .add").on("click", function () {
+                                            $(this).prev("input").val(($(this).prev("input").val() - 0 + 1))
+                                        })
+
+                                    })
+                                </script>
+                                <!-- 数量添加模块结束 -->
                                 <div class="buy-coupon">
                                     <span>优惠券</span>
                                     <span>
                                         <b>
                                             <i>￥</i>
-                                            3
+                                            <em></em>
                                         </b>
                                     </span>
                                 </div>
@@ -189,7 +231,6 @@
                                     background: #360;
                                     display: none
                                 }
-
                             </style>
                             <script src="./js/jquery.fly.min.js"></script>
                             <script>
@@ -229,6 +270,8 @@
                                                     }, 200).fadeOut(1000);
                                                 }
                                             })
+
+
                                         })
                                     })
                                 })
@@ -236,45 +279,45 @@
 
                                 })
                             </script>
-                            
-                            <div id="msg">已成功加入购物车！</div>
-                        <!-- 添加购物车动画模块结束 -->
 
-                        <div class="goods-tit-type">
-                            <div class="goods-type">
-                                <i class="tmall" title="天猫"></i>
-                                <i class="you" title="优品"></i>
+                            <div id="msg">已成功加入购物车！</div>
+                            <!-- 添加购物车动画模块结束 -->
+
+                            <div class="goods-tit-type">
+                                <div class="goods-type">
+                                    <i class="tmall" title="天猫"></i>
+                                    <i class="you" title="优品"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="text2">
-                            <span>如果您喜欢此宝贝，记得分享给您的朋友，一起享优惠：</span>
-                            <div class="bdshare">
-                                <div class="bdsharebuttonbox bdshare-button-style0-16">
-                                    <a href="#" class="bds_more"></a>
-                                    <a href="#" class="bds_qzone" title="分享到QQ空间"></a>
-                                    <a href="#" class="bds_tsina" title="分享到新浪微博"></a>
-                                    <a href="#" class="bds_weixin" title="分享到微信"></a>
+                            <div class="text2">
+                                <span>如果您喜欢此宝贝，记得分享给您的朋友，一起享优惠：</span>
+                                <div class="bdshare">
+                                    <div class="bdsharebuttonbox bdshare-button-style0-16">
+                                        <a href="#" class="bds_more"></a>
+                                        <a href="#" class="bds_qzone" title="分享到QQ空间"></a>
+                                        <a href="#" class="bds_tsina" title="分享到新浪微博"></a>
+                                        <a href="#" class="bds_weixin" title="分享到微信"></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- 右侧导航栏开始 -->
+                        <style>
+                            .pos-right {
+                                position: absolute;
+                                top: 0;
+                                right: 20px;
+                                width: 125px;
+                                padding: 26px 0 14px 0;
+                                /* background: red; */
+                            }
+                        </style>
+                        <div class="pos-right">
+                        </div>
+                        <!-- 右侧导航栏结束结束 -->
                     </div>
-                    <!-- 右侧导航栏开始 -->
-                    <style>
-                        .pos-right {
-                            position: absolute;
-                            top: 0;
-                            right: 20px;
-                            width: 125px;
-                            padding: 26px 0 14px 0;
-                            /* background: red; */
-                        }
-                    </style>
-                    <div class="pos-right">
-                    </div>
-                    <!-- 右侧导航栏结束结束 -->
                 </div>
             </div>
-        </div>
         </div>
     </section>
     <!-- 精品模块推荐区开始 -->
@@ -303,4 +346,83 @@
             console.log("公共尾部加载完成")
         })
     })
+</script>
+<script>
+    $(() => {
+        var globalData = null;
+        function load() {
+            if (window.location.search.indexOf("?") == -1 ||
+                window.location.search.indexOf("=") == -1) {
+                return;
+            }
+            // $.get("http://127.0.0.1:8080/api/goods" + window.location.search, function (data) {
+            //     //console.log(data);
+            //     //var tmp = window.location.search.split("=")[1] - 0 - 1;
+            //     //console.log(tmp)
+            //     globalData = data[0];
+            //     $("#middleImg img").attr("src", data[0].imgs)
+            //     $(".detail-col span.title").text(data[0].pName)
+            //     $(".desc span").text(data[0].discrip)
+            //     $(".coupon-wrap .now-price").find("b").eq(1).find("i").text(data[0].pPrice)
+            //     $(".org-price i").text(data[0].prePrice)
+            //     $(".text-wrap").find("span").eq(0).find("i").text(data[0].get)
+            //     $(".text-wrap").find("span").eq(1).find("i").text(data[0].many)
+            //     $(".buy-coupon").find("span").eq(1).find("b em").text(data[0].quan)
+            // })
+            $.ajax({
+                url:"http://127.0.0.1:8080/api/goods",
+                type:"get",
+                dataType:"json"
+            }).done((data)=>{
+                var tmp =  window.location.search.split("=")[1]-1;
+                globalData = data[tmp];
+                console.log(tmp)
+                $("#middleImg img").attr("src", data[tmp].imgs)
+                $(".detail-col span.title").text(data[tmp].pName)
+                $(".desc span").text(data[tmp].discrip)
+                $(".coupon-wrap .now-price").find("b").eq(1).find("i").text(data[tmp].pPrice)
+                $(".org-price i").text(data[tmp].prePrice)
+                $(".text-wrap").find("span").eq(0).find("i").text(data[tmp].get)
+                $(".text-wrap").find("span").eq(1).find("i").text(data[tmp].many)
+                $(".buy-coupon").find("span").eq(1).find("b em").text(data[tmp].quan)
+            })
+
+        }
+        load();
+
+        //console.log(globalData)
+
+        //添加购物车功能开始
+        $(".addcar").on("click", function () {
+            var saveObj = {
+                uId: JSON.parse($.cookie("userInfo")).uid,
+                pId: globalData.pId,
+                pName: globalData.pName,
+                pPrice: globalData.pPrice,
+                pNum: $("#num").val(),
+                pTotal: globalData.pPrice * $("#num").val(),
+                pImg: globalData.imgs[0]
+            }
+            console.log(saveObj)
+            //console.log("拿到token"+$.cookie("token"))
+            $.ajax({
+                url: "http://127.0.0.1:8080/api/addcart",
+                type: "post",
+                headers:{
+                    "token":$.cookie("token")
+                },
+                data: saveObj,
+                dataType: "json"
+            }).done((data) => {
+                console.log(data);
+            })
+        })
+
+        //添加购物车功能结束
+    })
+
+
+
+
+
 </script>

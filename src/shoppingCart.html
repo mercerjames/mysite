@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/shoppingCart.css">
     <link rel="stylesheet" href="./css/footer.css">
     <script src="./js/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 </head>
 
 <body>
@@ -56,8 +57,47 @@
                                 <div id="cart-list">
 
                                 </div>
-                                <!-- 购物车内的具体商品条目开始 -->
-                                <div class="cart-item-list clearFloat">
+
+                                <script>
+                                    // req.body.uId,
+                                    // req.body.pId,
+                                    // req.body.pName,
+                                    // req.body.pPrice,
+                                    // req.body.pNum,
+                                    // req.body.pTotal,
+                                    // req.body.pImg
+                                    $(function () {
+                                        var result1;
+                                        async function show() {
+                                            // var result = await $.get("http://127.0.0.1:8080/api/getcart", { uId: JSON.parse($.cookie("userInfo")).uid })
+                                            // console.log(result)
+                                            var result = await $.ajax({
+                                                url: "http://127.0.0.1:8080/api/getcart",
+                                                type: "get",
+                                                dataType: "json",
+                                                headers: {
+                                                    "token": $.cookie("token")//从cookie中读取到token，岁响应头一起发送都服务器
+                                                },
+                                                data: {
+                                                    uId: JSON.parse($.cookie("userInfo")).uid
+                                                }
+                                            }).done((data) => {
+                                                result1 = data;
+                                            })
+                                            console.log(result1)
+                                            var strHTML = ``;
+                                            //console.log(typeof(result))
+                                            // result.forEach(ele=>{
+                                            //     console.log(ele.uid)
+                                            //     console.log(ele.pId)
+                                            //     console.log(ele.pName)
+                                            //     console.log(ele.pPrice)
+                                            //     console.log(ele.pNum)
+                                            //     console.log(ele.pTotal)
+                                            //     console.log(ele.pImg)
+                                            // })
+                                            result1.forEach(ele => {
+                                                strHTML = `<div class="cart-item-list clearFloat">
                                     <div class="cart-tbody">
                                         <div class="shop">
                                             <div class="cart-checkbox">
@@ -66,7 +106,7 @@
                                             </div>
                                             <span class="shop-txt">
                                                 <a href="#" class="shop-name" target="_blank" text="1">
-                                                    耘朗礼品专营店
+                                                    你就是个沙雕
                                                 </a>
                                                 <a href="#" class="btn-im">联系客服</a>
                                             </span>
@@ -75,7 +115,7 @@
                                                     <div class="item-form">
                                                         <div class="cell p-checkbox">
                                                             <div class="cart-checkbox">
-                                                                <input type="checkbox" class="jdcheckbox">
+                                                                <input type="checkbox" class="jdcheckbox" data-pid="${ele.pId}">
                                                                 <label for>勾选商品</label>
                                                                 <span class="line-circle"></span>
                                                             </div>
@@ -84,15 +124,14 @@
                                                             <div class="goods-item">
                                                                 <div class="p-img">
                                                                     <a href="#" target="_blank">
-                                                                        <img src="./productImg/22498f765b8b3001.jpg"
-                                                                            alt="暴力熊Thermal Grizzly Aeronaut  导热硅脂硅胶散热礼物 Aeronaut 1g版">
+                                                                        <img src="${ele.pImg}"
+                                                                            alt="${ele.pName}" style="width:80px;height:80px;">
                                                                     </a>
                                                                 </div>
                                                                 <div class="item-msg">
                                                                     <div class="p-name">
                                                                         <a href="#" target="_blank">
-                                                                            暴力熊Thermal Grizzly Aeronaut 导热硅脂硅胶散热礼物
-                                                                            Aeronaut 1g版
+                                                                                ${ele.pName}
                                                                         </a>
                                                                     </div>
                                                                     <div class="p-extend p-extend-new">
@@ -107,7 +146,7 @@
                                                                 1g版</div>
                                                             <div class="cell p-price p-price-new ">
                                                                 <p class="plus-switch">
-                                                                    <strong>¥59.80</strong>
+                                                                    <strong>￥<em>${ele.pPrice}</em></strong>
                                                                 </p>
                                                                 <div>
                                                                     <div class="clr"></div>
@@ -119,7 +158,7 @@
                                                                     <a href="javascript:void(0);"
                                                                         class="fl decrement disabled">-</a>
                                                                     <input autocomplete="off" type="text" class="itxt"
-                                                                        value="1" minnum="1">
+                                                                        value="${ele.pNum}" minnum="1">
                                                                     <a href="javascript:void(0);"
                                                                         class="fr increment">+</a>
                                                                 </div>
@@ -129,10 +168,10 @@
 
                                                             </div>
                                                             <div class="cell p-sum ">
-                                                                <strong>¥59.80</strong>
+                                                                <strong>￥<em>${ele.pTotal}</em></strong>
                                                             </div>
                                                             <div class="cell p-ops ">
-                                                                <a href="javascript:void(0);">删除</a>
+                                                                <a href="javascript:void(0);" class="deleteT">删除</a>
                                                                 <a href="javascript:void(0);">移到我的关注</a>
                                                             </div>
                                                             <div class="item-extra "
@@ -145,280 +184,116 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>`;
+                                                $(".cart-main").append(strHTML);
+
+                                            })
+                                            //减少
+                                            $(".cart-item-list").on("click", ".decrement", function () {
+                                                console.log("减少")
+                                                var num = $(this).next("input").val() - 1;
+                                                if (num == 0) {
+                                                    return;
+                                                }
+                                                $(this).next("input").val(num);
+                                                var obj = $(this).parents(".p-props-new").find(".plus-switch").find("em");
+                                                var num1 = parseFloat(obj.text()) * num;
+                                                var obj1 = $(this).parents(".p-props-new").find(".p-sum").find("em");
+                                                obj1.text(num1.toFixed(2))
+                                                var saveObj = {
+                                                    uId: JSON.parse($.cookie("userInfo" || "{}")).uid,
+                                                    pId: $(this).parents(".cart-item-list").find(".p-checkbox").find("[type=checkbox]").data("pid"),
+                                                    pNum: num
+
+                                                }
+                                                console.log(saveObj)
+                                                $.ajax({
+                                                    url: "http://127.0.0.1:8080/api/modify",
+                                                    data: saveObj,
+                                                    type: "post",
+                                                    headers: {
+                                                        "token": $.cookie("token")
+                                                    },
+                                                    dataType: "json"
+                                                }).done((data) => {
+                                                    if (data.affectedRows >= 1) {
+                                                        alert("修改成功")
+                                                    } else {
+                                                        alert("修改失败")
+                                                    }
+                                                })
+                                            })
+                                            //删除
+                                            $(".deleteT").on("click", function () {
+                                                var delObj = {
+                                                    uId: JSON.parse($.cookie("userInfo") || "{}").uid,
+                                                    pId: $(this).parents(".cart-item-list").find(".p-checkbox").find("[type=checkbox]").data("pid")
+                                                }
+                                                $.ajax({
+                                                    url: "http://127.0.0.1:8080/api/delete",
+                                                    type: "post",
+                                                    headers: {
+                                                        "token": $.cookie("token")
+                                                    },
+                                                    data: delObj
+                                                }).done((data) => {
+                                                    console.log(data);
+                                                })
+                                                $(this).parents(".cart-item-list").remove();
+                                            })
+
+                                            //添加
+                                            $(".cart-item-list").on("click", ".increment", function () {
+                                                console.log("增加")
+                                                var num = $(this).prev("input").val() - 0 + 1;
+                                                $(this).prev("input").val(num)
+                                                var obj = $(this).parents(".p-props-new").find(".plus-switch").find("em");
+                                                var num1 = parseFloat(obj.text()) * num;
+                                                var obj1 = $(this).parents(".p-props-new").find(".p-sum").find("em");
+                                                obj1.text(num1.toFixed(2))
+                                                var saveObj = {
+                                                    uId: JSON.parse($.cookie("userInfo" || "{}")).uid,
+                                                    pId: $(this).parents(".cart-item-list").find(".p-checkbox").find("[type=checkbox]").data("pid"),
+                                                    pNum: num
+
+                                                }
+                                                console.log(saveObj)
+
+                                                $.ajax({
+                                                    url: "http://127.0.0.1:8080/api/modify",
+                                                    data: saveObj,
+                                                    type: "post",
+                                                    headers: {
+                                                        "token": $.cookie("token")
+                                                    },
+                                                    dataType: "json"
+                                                }).done((data) => {
+                                                    if (data.affectedRows >= 1) {
+                                                        alert("修改成功")
+                                                    } else {
+                                                        alert("修改失败")
+                                                    }
+                                                })
+                                            })
+
+
+                                        }
+                                        show();
+                                        //    $(".cart-main") 
+
+
+                                    })
+                                </script>
                                 <!-- 购物车内的具体商品条目结束 -->
                                 <!-- 购物车内的具体商品条目开始 -->
-                                <div class="cart-item-list clearFloat">
-                                    <div class="cart-tbody">
-                                        <div class="shop">
-                                            <div class="cart-checkbox">
-                                                <input type="checkbox" name="checkbox" class="jdcheckbox">
-                                                <label for>勾选出店铺内全部的商品</label>
-                                            </div>
-                                            <span class="shop-txt">
-                                                <a href="#" class="shop-name" target="_blank" text="1">
-                                                    耘朗礼品专营店
-                                                </a>
-                                                <a href="#" class="btn-im">联系客服</a>
-                                            </span>
-                                            <div class="item-list">
-                                                <div class="item-single item-item">
-                                                    <div class="item-form">
-                                                        <div class="cell p-checkbox">
-                                                            <div class="cart-checkbox">
-                                                                <input type="checkbox" class="jdcheckbox">
-                                                                <label for>勾选商品</label>
-                                                                <span class="line-circle"></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cell p-goods">
-                                                            <div class="goods-item">
-                                                                <div class="p-img">
-                                                                    <a href="#" target="_blank">
-                                                                        <img src="./productImg/22498f765b8b3001.jpg"
-                                                                            alt="暴力熊Thermal Grizzly Aeronaut  导热硅脂硅胶散热礼物 Aeronaut 1g版">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="item-msg">
-                                                                    <div class="p-name">
-                                                                        <a href="#" target="_blank">
-                                                                            暴力熊Thermal Grizzly Aeronaut 导热硅脂硅胶散热礼物
-                                                                            Aeronaut 1g版
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="p-extend p-extend-new">
-                                                                        <span class="promise"
-                                                                            style="display: none;"></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cell p-props p-props-new">
-                                                            <div class="cell props-txt " title="Aeronaut 1g版">Aeronaut
-                                                                1g版</div>
-                                                            <div class="cell p-price p-price-new ">
-                                                                <p class="plus-switch">
-                                                                    <strong>¥59.80</strong>
-                                                                </p>
-                                                                <div>
-                                                                    <div class="clr"></div>
-                                                                </div>
-                                                                <p style="margin-top: 10px;"></p>
-                                                            </div>
-                                                            <div class="cell p-quantity ">
-                                                                <div class="quantity-form">
-                                                                    <a href="javascript:void(0);"
-                                                                        class="fl decrement disabled">-</a>
-                                                                    <input autocomplete="off" type="text" class="itxt"
-                                                                        value="1" minnum="1">
-                                                                    <a href="javascript:void(0);"
-                                                                        class="fr increment">+</a>
-                                                                </div>
-                                                                <div class="quantity-txt"
-                                                                    style="color: #aaa;position: relative; text-align: center;">
-                                                                    有货</div>
 
-                                                            </div>
-                                                            <div class="cell p-sum ">
-                                                                <strong>¥59.80</strong>
-                                                            </div>
-                                                            <div class="cell p-ops ">
-                                                                <a href="javascript:void(0);">删除</a>
-                                                                <a href="javascript:void(0);">移到我的关注</a>
-                                                            </div>
-                                                            <div class="item-extra "
-                                                                style="position: relative; margin-bottom: 10px;">
-                                                            </div>
-                                                            <div class="item-line "></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+
+
+
                                 <!-- 购物车内的具体商品条目结束 -->
                                 <!-- 购物车内的具体商品条目开始 -->
-                                <div class="cart-item-list clearFloat">
-                                    <div class="cart-tbody">
-                                        <div class="shop">
-                                            <div class="cart-checkbox">
-                                                <input type="checkbox" name="checkbox" class="jdcheckbox">
-                                                <label for>勾选出店铺内全部的商品</label>
-                                            </div>
-                                            <span class="shop-txt">
-                                                <a href="#" class="shop-name" target="_blank" text="1">
-                                                    耘朗礼品专营店
-                                                </a>
-                                                <a href="#" class="btn-im">联系客服</a>
-                                            </span>
-                                            <div class="item-list">
-                                                <div class="item-single item-item">
-                                                    <div class="item-form">
-                                                        <div class="cell p-checkbox">
-                                                            <div class="cart-checkbox">
-                                                                <input type="checkbox" class="jdcheckbox">
-                                                                <label for>勾选商品</label>
-                                                                <span class="line-circle"></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cell p-goods">
-                                                            <div class="goods-item">
-                                                                <div class="p-img">
-                                                                    <a href="#" target="_blank">
-                                                                        <img src="./productImg/22498f765b8b3001.jpg"
-                                                                            alt="暴力熊Thermal Grizzly Aeronaut  导热硅脂硅胶散热礼物 Aeronaut 1g版">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="item-msg">
-                                                                    <div class="p-name">
-                                                                        <a href="#" target="_blank">
-                                                                            暴力熊Thermal Grizzly Aeronaut 导热硅脂硅胶散热礼物
-                                                                            Aeronaut 1g版
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="p-extend p-extend-new">
-                                                                        <span class="promise"
-                                                                            style="display: none;"></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cell p-props p-props-new">
-                                                            <div class="cell props-txt " title="Aeronaut 1g版">Aeronaut
-                                                                1g版</div>
-                                                            <div class="cell p-price p-price-new ">
-                                                                <p class="plus-switch">
-                                                                    <strong>¥59.80</strong>
-                                                                </p>
-                                                                <div>
-                                                                    <div class="clr"></div>
-                                                                </div>
-                                                                <p style="margin-top: 10px;"></p>
-                                                            </div>
-                                                            <div class="cell p-quantity ">
-                                                                <div class="quantity-form">
-                                                                    <a href="javascript:void(0);"
-                                                                        class="fl decrement disabled">-</a>
-                                                                    <input autocomplete="off" type="text" class="itxt"
-                                                                        value="1" minnum="1">
-                                                                    <a href="javascript:void(0);"
-                                                                        class="fr increment">+</a>
-                                                                </div>
-                                                                <div class="quantity-txt"
-                                                                    style="color: #aaa;position: relative; text-align: center;">
-                                                                    有货</div>
 
-                                                            </div>
-                                                            <div class="cell p-sum ">
-                                                                <strong>¥59.80</strong>
-                                                            </div>
-                                                            <div class="cell p-ops ">
-                                                                <a href="javascript:void(0);">删除</a>
-                                                                <a href="javascript:void(0);">移到我的关注</a>
-                                                            </div>
-                                                            <div class="item-extra "
-                                                                style="position: relative; margin-bottom: 10px;">
-                                                            </div>
-                                                            <div class="item-line "></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 购物车内的具体商品条目结束 -->
-                                <!-- 购物车内的具体商品条目开始 -->
-                                <div class="cart-item-list clearFloat">
-                                    <div class="cart-tbody">
-                                        <div class="shop">
-                                            <div class="cart-checkbox">
-                                                <input type="checkbox" name="checkbox" class="jdcheckbox">
-                                                <label for>勾选出店铺内全部的商品</label>
-                                            </div>
-                                            <span class="shop-txt">
-                                                <a href="#" class="shop-name" target="_blank" text="1">
-                                                    耘朗礼品专营店
-                                                </a>
-                                                <a href="#" class="btn-im">联系客服</a>
-                                            </span>
-                                            <div class="item-list">
-                                                <div class="item-single item-item">
-                                                    <div class="item-form">
-                                                        <div class="cell p-checkbox">
-                                                            <div class="cart-checkbox">
-                                                                <input type="checkbox" class="jdcheckbox">
-                                                                <label for>勾选商品</label>
-                                                                <span class="line-circle"></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cell p-goods">
-                                                            <div class="goods-item">
-                                                                <div class="p-img">
-                                                                    <a href="#" target="_blank">
-                                                                        <img src="./productImg/22498f765b8b3001.jpg"
-                                                                            alt="暴力熊Thermal Grizzly Aeronaut  导热硅脂硅胶散热礼物 Aeronaut 1g版">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="item-msg">
-                                                                    <div class="p-name">
-                                                                        <a href="#" target="_blank">
-                                                                            暴力熊Thermal Grizzly Aeronaut 导热硅脂硅胶散热礼物
-                                                                            Aeronaut 1g版
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="p-extend p-extend-new">
-                                                                        <span class="promise"
-                                                                            style="display: none;"></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cell p-props p-props-new">
-                                                            <div class="cell props-txt " title="Aeronaut 1g版">Aeronaut
-                                                                1g版</div>
-                                                            <div class="cell p-price p-price-new ">
-                                                                <p class="plus-switch">
-                                                                    <strong>¥59.80</strong>
-                                                                </p>
-                                                                <div>
-                                                                    <div class="clr"></div>
-                                                                </div>
-                                                                <p style="margin-top: 10px;"></p>
-                                                            </div>
-                                                            <div class="cell p-quantity ">
-                                                                <div class="quantity-form">
-                                                                    <a href="javascript:void(0);"
-                                                                        class="fl decrement disabled">-</a>
-                                                                    <input autocomplete="off" type="text" class="itxt"
-                                                                        value="1" minnum="1">
-                                                                    <a href="javascript:void(0);"
-                                                                        class="fr increment">+</a>
-                                                                </div>
-                                                                <div class="quantity-txt"
-                                                                    style="color: #aaa;position: relative; text-align: center;">
-                                                                    有货</div>
-
-                                                            </div>
-                                                            <div class="cell p-sum ">
-                                                                <strong>¥59.80</strong>
-                                                            </div>
-                                                            <div class="cell p-ops ">
-                                                                <a href="javascript:void(0);">删除</a>
-                                                                <a href="javascript:void(0);">移到我的关注</a>
-                                                            </div>
-                                                            <div class="item-extra "
-                                                                style="position: relative; margin-bottom: 10px;">
-                                                            </div>
-                                                            <div class="item-line "></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <!-- 购物车内的具体商品条目结束 -->
                             </div>
                         </div>
@@ -427,6 +302,37 @@
             </div>
         </div>
     </section>
+    <div class="cart-toolbar fixed-bottom">
+        <div class="toolbar-wrap">
+            <div class="selected-item-list hide"></div>
+            <div class="options-box">
+                <div class="select-all">
+                    <div class="cart-checkbox">
+                        <input type="checkbox" id="toggle-checkboxes_down" name="toggle-checkboxes" class="jdcheckbox">
+                    </div>
+                    全选
+                </div>
+                <div class="operation">
+                    <a href="#none" class="remove-batch">删除选中商品</a>
+                    <a href="#none" class="follow-batch">移到关注</a>
+                    <a href="#none" class="cleaner-opt J_clr_all" title="亲，点我可快速清理购物车商品哦！">清理购物车</a>
+                </div>
+                <div class="clr"></div>
+                <div class="toolbar-right toolbar-right-new">
+                    <div class="normal" style="height: 52px;">
+                        <div class="comm-right">
+                            <div class="btn-area" style="float: right;">
+                                <a href="javascript:;" class="submit-btn">
+                                    去结算
+                                    <b></b>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer></footer>
 </body>
 
@@ -441,7 +347,7 @@
         })
         // 购物车核心模块开始
         //全选或不全选
-        
+
 
         //购物车核心模块结束
     })

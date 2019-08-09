@@ -106,13 +106,13 @@
                 <!-- <style>.addLeft{float: left}</style> -->
                 <!--  展示商品1开始 -->
                 <div class="pro_detail fl">
-                    <a href="./productPage.html" rel="nofollow" isconvert="1" target="_blank">
+                    <a href="./productPage.html?pid=1" rel="nofollow" isconvert="1" target="_blank">
                         <img data-original="http://127.0.0.1:8080/images/pic1.jpg" alt="" height="272"
                             class="showPic show" sytle="border: 0;max-width:272px;">
                     </a>
                     <div class="pro_intro fr">
                         <p class="pro_title">
-                            <a href="./productPage.html" target="_blank" isconvert="1" title="加厚手提式垃圾袋家用大号2卷/5卷"
+                            <a href="./productPage.html?pid=1" target="_blank" isconvert="1" title="加厚手提式垃圾袋家用大号2卷/5卷"
                                 style="font-size: 16px;"></a>
                         </p>
                         <div class="pro_price">
@@ -121,33 +121,33 @@
                                 券
                                 <b>
                                     <i>￥</i>
-                                    3.00
+                                    <span></span>
                                 </b>
                                 <em class="quan-right" style="right: 0;background-position-x: -136px;"></em>
                             </span>
                             <div class="out_time">
                                 过期时间
-                                <span style="font-family: Arial; margin-left: 6px;">2019-07-29</span>
+                                <span style="font-family: Arial; margin-left: 6px;"></span>
                             </div>
                         </div>
                         <div class="residue">
                             优惠券剩余
-                            <i class="color_p">73000</i>
+                            <i class="color_p"></i>
                             张，已领取
-                            <i class="color_p">27000</i>
+                            <i class="color_p"></i>
                             张
                         </div>
                         <div class="residue">
                             销量
-                            <i class="color_p">1357429</i>
+                            <i class="color_p"></i>
                             件
                         </div>
                         <div class="pro_nowPri">
-                            <div class="buy-price">5.90</div>
+                            <div class="buy-price"></div>
                             <div class="old-price">
                                 <p>
                                     <i>￥</i>
-                                    8.90
+                                    <em></em>
                                 </p>
                                 <span>券后价</span>
                             </div>
@@ -157,29 +157,17 @@
                         </div>
                     </div>
                 </div>
-                <script>
-                    $(() => {
-                        $.ajax({
-                            url: "http://127.0.0.1:8080/api/goods",
-                            type: "get",
-                            dataType: "json"
-                        }).done((data) => {
-                            console.log(data[0])
-                            $(".pro_title a").text(data[0].pName)
-                        })
-                    })
-                </script>
                 <!-- 展示商品1结束 -->
                 <!-- 展示商品2开始 -->
                 <div class="pro_detail fr">
-                    <a href="#" rel="nofollow" isconvert="1" target="_blank">
+                    <a href="./productPage.html?pid=2" rel="nofollow" isconvert="1" target="_blank">
                         <img data-original="http://127.0.0.1:8080/images/pic2.jpg" alt="" height="272"
                             class="showPic show" sytle="border: 0;max-width:272px;">
                     </a>
                     <div class="pro_intro fr">
                         <p class="pro_title">
-                            <a href="#" target="_blank" isconvert="1" title="加厚手提式垃圾袋家用大号2卷/5卷"
-                                style="font-size: 16px;">加厚手提式垃圾袋家用大号2卷/5卷</a>
+                            <a href="./productPage.html?pid=2" target="_blank" isconvert="1" title="加厚手提式垃圾袋家用大号2卷/5卷"
+                                style="font-size: 16px;"></a>
                         </p>
                         <div class="pro_price">
                             <span class="coupon">
@@ -187,33 +175,33 @@
                                 券
                                 <b>
                                     <i>￥</i>
-                                    3.00
+                                    <span></span>
                                 </b>
                                 <em class="quan-right" style="right: 0;background-position-x: -136px;"></em>
                             </span>
                             <div class="out_time">
                                 过期时间
-                                <span style="font-family: Arial; margin-left: 6px;">2019-07-29</span>
+                                <span style="font-family: Arial; margin-left: 6px;"></span>
                             </div>
                         </div>
                         <div class="residue">
                             优惠券剩余
-                            <i class="color_p">73000</i>
+                            <i class="color_p"></i>
                             张，已领取
-                            <i class="color_p">27000</i>
+                            <i class="color_p"></i>
                             张
                         </div>
                         <div class="residue">
                             销量
-                            <i class="color_p">1357429</i>
+                            <i class="color_p"></i>
                             件
                         </div>
                         <div class="pro_nowPri">
-                            <div class="buy-price">5.90</div>
+                            <div class="buy-price"></div>
                             <div class="old-price">
                                 <p>
                                     <i>￥</i>
-                                    8.90
+                                    <em></em>
                                 </p>
                                 <span>券后价</span>
                             </div>
@@ -223,16 +211,17 @@
                         </div>
                     </div>
                 </div>
+                
                 <!-- 展示商品2结束 -->
                 <!-- 展示商品3开始 -->
                 <div class="pro_detail fl">
-                    <a href="#" rel="nofollow" isconvert="1" target="_blank">
+                    <a href="./productPage.html?pid=3" rel="nofollow" isconvert="1" target="_blank">
                         <img data-original="http://127.0.0.1:8080/images/pic3.png" alt="" height="272"
                             class="showPic show" sytle="border: 0;max-width:272px;">
                     </a>
                     <div class="pro_intro fr">
                         <p class="pro_title">
-                            <a href="#" target="_blank" isconvert="1" title="加厚手提式垃圾袋家用大号2卷/5卷"
+                            <a href="./productPage.html?pid=2" target="_blank" isconvert="1" title="加厚手提式垃圾袋家用大号2卷/5卷"
                                 style="font-size: 16px;">加厚手提式垃圾袋家用大号2卷/5卷</a>
                         </p>
                         <div class="pro_price">
@@ -280,13 +269,13 @@
                 <!-- 展示商品3结束 -->
                 <!-- 展示商品4开始 -->
                 <div class="pro_detail fr">
-                    <a href="#" rel="nofollow" isconvert="1" target="_blank">
+                    <a href="./productPage.html?pid=4" rel="nofollow" isconvert="1" target="_blank">
                         <img data-original="http://127.0.0.1:8080/images/pic4.jpg" alt="" height="272"
                             class="showPic show" sytle="border: 0;max-width:272px;">
                     </a>
                     <div class="pro_intro fr">
                         <p class="pro_title">
-                            <a href="#" target="_blank" isconvert="1" title="加厚手提式垃圾袋家用大号2卷/5卷"
+                            <a href="./productPage.html?pid=4" target="_blank" isconvert="1" title="加厚手提式垃圾袋家用大号2卷/5卷"
                                 style="font-size: 16px;">加厚手提式垃圾袋家用大号2卷/5卷</a>
                         </p>
                         <div class="pro_price">
@@ -334,13 +323,13 @@
                 <!-- 展示商品4结束 -->
                 <!-- 展示商品5开始 -->
                 <div class="pro_detail fl">
-                    <a href="#" rel="nofollow" isconvert="1" target="_blank">
+                    <a href="./productPage.html?pid=5" rel="nofollow" isconvert="1" target="_blank">
                         <img data-original="http://127.0.0.1:8080/images/pic5.jpg" alt="" height="272"
                             class="showPic show" sytle="border: 0;max-width:272px;">
                     </a>
                     <div class="pro_intro fr">
                         <p class="pro_title">
-                            <a href="#" target="_blank" isconvert="1" title="加厚手提式垃圾袋家用大号2卷/5卷"
+                            <a href="./productPage.html?pid=5" target="_blank" isconvert="1" title="加厚手提式垃圾袋家用大号2卷/5卷"
                                 style="font-size: 16px;">加厚手提式垃圾袋家用大号2卷/5卷</a>
                         </p>
                         <div class="pro_price">
@@ -388,13 +377,13 @@
                 <!-- 展示商品5结束 -->
                 <!-- 展示商品6开始 -->
                 <div class="pro_detail fr">
-                    <a href="#" rel="nofollow" isconvert="1" target="_blank">
+                    <a href="./productPage.html?pid=6" rel="nofollow" isconvert="1" target="_blank">
                         <img data-original="http://127.0.0.1:8080/images/pic6.jpg" alt="" height="272"
                             class="showPic show" sytle="border: 0;max-width:272px;">
                     </a>
                     <div class="pro_intro fr">
                         <p class="pro_title">
-                            <a href="#" target="_blank" isconvert="1" title="加厚手提式垃圾袋家用大号2卷/5卷"
+                            <a href="./productPage.html?pid=6" target="_blank" isconvert="1" title="加厚手提式垃圾袋家用大号2卷/5卷"
                                 style="font-size: 16px;">加厚手提式垃圾袋家用大号2卷/5卷</a>
                         </p>
                         <div class="pro_price">
@@ -440,6 +429,27 @@
                     </div>
                 </div>
                 <!-- 展示商品6结束 -->
+                <script>
+                    $(() => {
+                        $.ajax({
+                            url: "http://127.0.0.1:8080/api/goods",
+                            type: "get",
+                            dataType: "json"
+                        }).done((data) => {
+                            console.log(data[0])
+                            for(var i=0;i<6;i++){
+                                $(".dis_product").find(".pro_detail").eq(i).find(".pro_title a").text(data[i].pName)
+                                $(".dis_product").find(".pro_detail").eq(i).find(".pro_price .coupon b").find("span").text(data[i].quan)
+                                $(".dis_product").find(".pro_detail").eq(i).find(".out_time span").text(data[i].time)
+                                $(".dis_product").find(".pro_detail").eq(i).find(".residue i").eq(0).text(data[i].left)
+                                $(".dis_product").find(".pro_detail").eq(i).find(".residue i").eq(1).text(data[i].get)
+                                $(".dis_product").find(".pro_detail").eq(i).find(".pro_intro").find(".residue").eq(1).find("i").text(data[i].many)
+                                $(".dis_product").find(".pro_detail").eq(i).find(".buy-price").text(data[i].pPrice)
+                                $(".dis_product").find(".pro_detail").eq(i).find(".old-price p em").text(data[i].prePrice)
+                            }
+                        })
+                    })
+                </script>
             </div>
             <!-- 折扣商品区结束 -->
         </div>
